@@ -68,6 +68,35 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+1. Optional Chaining
+
+To implement the function to display the feedbacks by most and least comment, i used the Array.sort(function) method. However, since some feedbacks do not contain comments, it would return an error and i want to check and compare only those that have comments. I initially went the longwinded way in comparing that and later learned about optional chaining that significantly simplified the code and was very happy to learn about!
+
+Without optional chaining
+
+```jsx
+setFeedbackList(
+  feedbackList.productRequests.sort((a, b) => {
+    // Default to empty array if comments is undefined
+    const aCommentsLength =
+      a.comments && Array.isArray(a.comments) ? a.comments.length : 0;
+    const bCommentsLength =
+      b.comments && Array.isArray(b.comments) ? b.comments.length : 0;
+    return aCommentsLength - bCommentsLength;
+  })
+);
+```
+
+with optional chaining,
+
+```jsx
+function, setFeedbackList(
+  feedbackList.productRequests.sort((a, b) => (a.comments?.length || 0) - (b.comments?.length || 0))
+  );
+
+
+```
+
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:

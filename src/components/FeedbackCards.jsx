@@ -4,7 +4,7 @@ export default function ({ feedbackList, setFeedbackList }) {
   // Add the return keyword here
   return (
     <>
-      {feedbackList.productRequests.map((feedback) => (
+      {feedbackList?.map((feedback) => (
         <div className="row feedback-card mt-3 mb-3 p-4" key={feedback.id}>
           <div className="col-1 mx-2 d-flex upvote-button-section flex-column align-items-center">
             <div className="upvote-button">

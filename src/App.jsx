@@ -7,7 +7,9 @@ import Navbar from "./components/Navbar";
 import Mainpage from "./components/Mainpage";
 
 function App() {
-  const [feedbackList, setFeedbackList] = useState(data);
+  const [user, setUser] = useState(data.user);
+  const [feedbackList, setFeedbackList] = useState(data.productRequests);
+  console.log("feedbackList state", feedbackList);
   return (
     <div className="container mt-5 d-flex justify-content-center">
       <div className="row">

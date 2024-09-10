@@ -32,10 +32,7 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
             </div>
             <div className="mx-5 fw-bolder">
               {" "}
-              {feedbackList.productRequests.length
-                ? feedbackList.productRequests.length
-                : 0}{" "}
-              Suggestions
+              {feedbackList?.length > 0 ? feedbackList?.length : 0} Suggestions
             </div>
             <div>
               <label for="sort-category">
@@ -44,6 +41,7 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
               <select
                 name="sort-category form-select fw-bolder"
                 id="sort-category"
+                onChange={handleSortByUpvotesAndComments}
               >
                 <option value="most-upvotes">Most upvotes</option>
                 <option value="least-upvotes">Least upvotes</option>
@@ -65,4 +63,35 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
       </section>
     </>
   );
+  function handleSortByUpvotesAndComments(e) {
+    e.preventDefault();
+    switch (e.target.value) {
+      case "most-upvotes":
+        setFeedbackList(feedbackList.toSorted((a, b) => b.upvotes - a.upvotes));
+
+        break;
+      case "least-upvotes":
+        setFeedbackList(feedbackList.toSorted((a, b) => a.upvotes - b.upvotes));
+
+        break;
+      case "most-comments":
+        setFeedbackList(
+          feedbackList.toSorted((a, b) => {
+            const aCommentsLength = a.comments ? a.comments.length : 0;
+            const bCommentsLength = b.comments ? b.comments.length : 0;
+            return bCommentsLength - aCommentsLength;
+          })
+        );
+        break;
+      case "least-comments":
+        setFeedbackList(
+          feedbackList.toSorted((a, b) => {
+            const aCommentsLength = a.comments ? a.comments.length : 0;
+            const bCommentsLength = b.comments ? b.comments.length : 0;
+            return aCommentsLength - bCommentsLength;
+          })
+        );
+        break;
+    }
+  }
 }
