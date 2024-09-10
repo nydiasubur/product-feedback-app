@@ -1,0 +1,90 @@
+:root {
+  --violet: #ad1fea;
+  --violet-blue: #4661e6;
+  --main-dark-blue: #3a4374;
+  --very-light-purple: #f2f4ff;
+  --white: #ffffff;
+  --light-gray: #f7f8fd;
+  --gray: #647196;
+}
+
+body {
+  background-color: var(--light-gray);
+  font-family: "Jost", sans-serif;
+}
+
+p {
+  color: var(--gray);
+  font: 16px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.333px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+}
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  color: var(--main-dark-blue);
+}
+
+h3:hover {
+  color: var(--violet-blue);
+  cursor: pointer;
+}
+h4 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.194px;
+}
+
+.regular-font-style {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.regular-font-style-2 {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.semi-bold-font-style {
+  font-weight: 600;
+}
+
+.category-button {
+  border-radius: 10px;
+  background: #f2f4ff;
+  padding: 10px;
+  color: var(--violet-blue);
+  font-weight: 600;
+  display: inline-block;
+}
+
+.category-button:hover {
+  background: var(--violet-blue);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.violet-button {
+  border-radius: 10px;
+  background-color: var(--violet);
+  font-weight: 600;
+  color: var(--white);
+  font-size: 14px;
+  border: none;
+  padding: 12px;
+}
+.violet-button:hover {
+  background-color: rgba(173, 31, 234, 0.7); /* Red with 50% opacity */
+  color: var(--white);
+  cursor: pointer;
+}

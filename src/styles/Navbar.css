@@ -1,0 +1,29 @@
+.navbar {
+  width: 255px;
+}
+.navbar .header {
+  background-image: url(/assets/suggestions/desktop/background-header.png);
+  background-repeat: no-repeat;
+  color: var(--white);
+
+  height: 137px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.navbar .tags {
+  background-color: var(--white);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+select option {
+  background-color: var(--white);
+  color: var(--very-dark-blue);
+}
+option:hover {
+  color: var(--violet);
+}

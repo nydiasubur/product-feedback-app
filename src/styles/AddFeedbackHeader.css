@@ -1,0 +1,28 @@
+.main {
+  width: 825px;
+}
+.add-feedback-header {
+  background-color: var(--main-dark-blue);
+  color: var(--white);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+select {
+  border: none;
+  background-color: transparent;
+  color: var(--white);
+}
+
+.feedback-card {
+  padding: 15px;
+  background-color: var(--white);
+  border-radius: 10px;
+}
+
+.upvote-button-section {
+  background-color: var(--very-light-purple);
+  border-radius: 10px;
+  width: 40px;
+  height: 53px;
+}
