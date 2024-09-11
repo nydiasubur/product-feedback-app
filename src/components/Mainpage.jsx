@@ -1,5 +1,6 @@
 import React from "react";
 import FeedbackCards from "./FeedbackCards.jsx";
+import { Link } from "react-router-dom";
 
 export default function Mainpage({ feedbackList, setFeedbackList }) {
   return (
@@ -51,7 +52,10 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
             </div>
           </div>
           <div className="col-3  d-flex justify-content-end">
-            <button className="violet-button "> + Add Feedback</button>
+            <button className="violet-button ">
+              {console.log("feedbackList from mainpage", feedbackList)}
+              <Link to="/create-new-feedback">+ Add Feedback</Link>
+            </button>
           </div>
         </div>
 
@@ -76,11 +80,9 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
         break;
       case "most-comments":
         setFeedbackList(
-          feedbackList.toSorted((a, b) => {
-            const aCommentsLength = a.comments ? a.comments.length : 0;
-            const bCommentsLength = b.comments ? b.comments.length : 0;
-            return bCommentsLength - aCommentsLength;
-          })
+          feedbackList.toSorted(
+            (a, b) => (b.comments?.length || 0) - (a.comments?.length || 0)
+          )
         );
         break;
       case "least-comments":
@@ -93,5 +95,9 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
         );
         break;
     }
+  }
+
+  function handleAddFeedback() {
+    navigate("/create-new-feedback");
   }
 }

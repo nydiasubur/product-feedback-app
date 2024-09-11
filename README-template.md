@@ -68,38 +68,81 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
-1. Optional Chaining
+1. sorting functionality + nature of react to trigger a re-render:
+   toSorted --> returns new array vs sort() --> changes original array
 
-To implement the function to display the feedbacks by most and least comment, i used the Array.sort(function) method. However, since some feedbacks do not contain comments, it would return an error and i want to check and compare only those that have comments. I initially went the longwinded way in comparing that and later learned about optional chaining that significantly simplified the code and was very happy to learn about!
+In React, state updates must trigger a re-render, but if React detects that the state is not actually changing (such as when it references the same array), it will not trigger a re-render.
 
-Without optional chaining
-
-```jsx
-setFeedbackList(
-  feedbackList.productRequests.sort((a, b) => {
-    // Default to empty array if comments is undefined
-    const aCommentsLength =
-      a.comments && Array.isArray(a.comments) ? a.comments.length : 0;
-    const bCommentsLength =
-      b.comments && Array.isArray(b.comments) ? b.comments.length : 0;
-    return aCommentsLength - bCommentsLength;
-  })
-);
-```
-
-with optional chaining,
+- learn to use toSort function
+- initially page did not render when i used sort() it updated the original array and when i update the state, react didnt detect a change and so it did not render
 
 ```jsx
-function, setFeedbackList(
-  feedbackList.productRequests.sort((a, b) => (a.comments?.length || 0) - (b.comments?.length || 0))
-  );
+switch (e.target.value) {
+  case "most-upvotes":
+    setFeedbackList(feedbackList.toSorted((a, b) => b.upvotes - a.upvotes));
 
+    break;
+  case "least-upvotes":
+    setFeedbackList(feedbackList.toSorted((a, b) => a.upvotes - b.upvotes));
 
+    break;
+  case "most-comments":
+    setFeedbackList(
+      feedbackList.toSorted((a, b) => {
+        const aCommentsLength = a.comments ? a.comments.length : 0;
+        const bCommentsLength = b.comments ? b.comments.length : 0;
+        return bCommentsLength - aCommentsLength;
+      })
+    );
+    break;
+  case "least-comments":
+    setFeedbackList(
+      feedbackList.toSorted((a, b) => {
+        const aCommentsLength = a.comments ? a.comments.length : 0;
+        const bCommentsLength = b.comments ? b.comments.length : 0;
+        return aCommentsLength - bCommentsLength;
+      })
+    );
+    break;
+}
 ```
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+2. optional chaining
 
-To see how you can add code snippets, see below:
+```jsx
+case "most-comments":
+        setFeedbackList(
+          feedbackList.toSorted(
+            (a, b) => (b.comments?.length || 0) - (a.comments?.length || 0)
+          )
+        );
+        break;
+      case "least-comments":
+        setFeedbackList(
+          feedbackList.toSorted((a, b) => {
+            const aCommentsLength = a.comments ? a.comments.length : 0;
+            const bCommentsLength = b.comments ? b.comments.length : 0;
+            return aCommentsLength - bCommentsLength;
+          })
+        );
+        break;
+```
+
+2.using react-router for multiple JSX pages and managing/passing state and stateSetter
+
+```jsx
+//atMainpage for the button
+<button className="violet-button ">
+  <Link to="/create-new-feedback" state={{ feedbackList, setFeedbackList }}>
+    + Add Feedback
+  </Link>
+</button>;
+
+//at createNewFeedbackPage
+import { useLocation } from "react-router-dom";
+
+const { feedback, setFeedbackList } = useLocation().state;
+```
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
