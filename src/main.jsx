@@ -2,10 +2,11 @@ import { StrictMode, createContext, useContext, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
-import NotFoundPage from "./components/NotFoundPage.jsx";
-import CreateNewFeedbackPage from "./components/CreateNewFeedbackPage.jsx";
 import data from "../data.json";
 import useLocalStorage from "use-local-storage";
+import NotFoundPage from "./components/NotFoundPage.jsx";
+import CreateNewFeedbackPage from "./components/CreateNewFeedbackPage.jsx";
+import FeedbackDetail from "./components/FeedbackDetail.jsx";
 
 export const FeedbackListContext = createContext();
 const router = createBrowserRouter([
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
   {
     path: "/create-new-feedback",
     element: <CreateNewFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/feedback/:id",
+    element: <FeedbackDetail />,
     errorElement: <NotFoundPage />,
   },
 ]);
