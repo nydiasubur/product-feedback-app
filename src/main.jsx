@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import NotFoundPage from "./components/NotFoundPage.jsx";
 import CreateNewFeedbackPage from "./components/CreateNewFeedbackPage.jsx";
 import data from "../data.json";
+import useLocalStorage from "use-local-storage";
 
 export const FeedbackListContext = createContext();
 const router = createBrowserRouter([
@@ -21,7 +22,10 @@ const router = createBrowserRouter([
 ]);
 
 function Main() {
-  const [feedbackList, setFeedbackList] = useState(data.productRequests);
+  const [feedbackList, setFeedbackList] = useLocalStorage(
+    "feedbackList",
+    data.productRequests
+  );
   return (
     <StrictMode>
       <FeedbackListContext.Provider value={{ feedbackList, setFeedbackList }}>
