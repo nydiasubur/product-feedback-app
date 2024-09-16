@@ -144,6 +144,23 @@ import { useLocation } from "react-router-dom";
 const { feedback, setFeedbackList } = useLocation().state;
 ```
 
+3. using useRef vs using normal variable 
+```jsx 
+  const userInputRef = useRef({
+    id: 100,
+    title: "",
+    category: "",
+    upvotes: 0,
+    status: "",
+    description: "",
+  });
+
+  function handleTitleInput(e) {
+    // Update the ref's current value
+    userInputRef.current = { ...userInputRef.current, title: e.target.value };
+  }
+ ```
+
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```

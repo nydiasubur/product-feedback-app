@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { FeedbackListContext } from "../Main";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function FeedbackDetail() {
   // display the feedback defatils of the feedback id passed
@@ -10,8 +10,12 @@ export default function FeedbackDetail() {
     (feedback) => feedback.id === parseInt(id)
   );
   return (
-    <div>
-      <h1>FeedbackDetail {id}</h1>
+    <div className="container mt-5 ">
+      <div className="d-flex justify-content-between">
+        <Link to="/"> Go Back</Link>
+        <button className="blue-button">Edit Feedback</button>
+      </div>
+
       <div className="row feedback-card mt-3 mb-3 p-4">
         <div className="col-1 mx-2 d-flex upvote-button-section flex-column align-items-center">
           <div className="upvote-button">
@@ -59,6 +63,59 @@ export default function FeedbackDetail() {
             {feedback.comments ? feedback.comments.length : 0}
           </span>
         </div>
+      </div>
+
+      <div className="mt-5 comment-section">
+        <h3> 4 Comments</h3>
+        {/* if comments array length is not empty, display comment */}
+        {feedback.comments.length > 0 &&
+          feedback.comments.map((comment) => (
+            <div className="comment-card row" key={comment.id}>
+              <div className="col-1">
+                <img
+                  src={comment.user.image}
+                  alt="profile Picture"
+                  className="profile-picture"
+                />
+              </div>
+              <div className="col-11">
+                <div className="d-flex justify-content-between mb-0 pb-0">
+                  <h4>{comment.user.name}</h4>
+                  <div>Reply</div>
+                </div>
+                <p>@{comment.user.username}</p>
+                <p>{comment.content}</p>
+              </div>
+              {/* if replies array length is not empty, display replies */}
+              {comment.replies?.length > 0 &&
+                comment.replies.map((reply) => {
+                  return (
+                    <div
+                      className="comment-card row ms-5 d-flex flex-shrink-1"
+                      key={reply.id}
+                    >
+                      <div className="col-1">
+                        <img
+                          src={reply.user.image}
+                          alt="profile Picture"
+                          className="profile-picture"
+                        />
+                      </div>
+                      <div className="col-11">
+                        <div className="d-flex justify-content-between mb-0 pb-0">
+                          <h4>{reply.user.name}</h4>
+                          <div>Reply</div>
+                        </div>
+                        <p>@{reply.user.username}</p>
+                        <p>{reply.content}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          ))}
+
+        <div className="comment-card"></div>
       </div>
     </div>
   );
