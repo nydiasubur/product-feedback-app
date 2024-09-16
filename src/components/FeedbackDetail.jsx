@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FeedbackListContext } from "../Main";
 import { useParams, Link } from "react-router-dom";
+import CommentCard from "./CommentCard";
 
 export default function FeedbackDetail() {
   // display the feedback defatils of the feedback id passed
@@ -66,53 +67,11 @@ export default function FeedbackDetail() {
       </div>
 
       <div className="mt-5 comment-section">
-        <h3> 4 Comments</h3>
+        <h3 className="mb-5"> {feedback.comments?.length} Comments</h3>
         {/* if comments array length is not empty, display comment */}
         {feedback.comments.length > 0 &&
           feedback.comments.map((comment) => (
-            <div className="comment-card row" key={comment.id}>
-              <div className="col-1">
-                <img
-                  src={comment.user.image}
-                  alt="profile Picture"
-                  className="profile-picture"
-                />
-              </div>
-              <div className="col-11">
-                <div className="d-flex justify-content-between mb-0 pb-0">
-                  <h4>{comment.user.name}</h4>
-                  <div>Reply</div>
-                </div>
-                <p>@{comment.user.username}</p>
-                <p>{comment.content}</p>
-              </div>
-              {/* if replies array length is not empty, display replies */}
-              {comment.replies?.length > 0 &&
-                comment.replies.map((reply) => {
-                  return (
-                    <div
-                      className="comment-card row ms-5 d-flex flex-shrink-1"
-                      key={reply.id}
-                    >
-                      <div className="col-1">
-                        <img
-                          src={reply.user.image}
-                          alt="profile Picture"
-                          className="profile-picture"
-                        />
-                      </div>
-                      <div className="col-11">
-                        <div className="d-flex justify-content-between mb-0 pb-0">
-                          <h4>{reply.user.name}</h4>
-                          <div>Reply</div>
-                        </div>
-                        <p>@{reply.user.username}</p>
-                        <p>{reply.content}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
+            <CommentCard comment={comment} key={comment.id} />
           ))}
 
         <div className="comment-card"></div>
