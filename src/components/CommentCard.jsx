@@ -1,8 +1,11 @@
 import React from "react";
 
-export default function CommentCard({ comment, key }) {
+export default function CommentCard({ comment }) {
+  console.log("card comment", comment);
+  console.log("card comment image", comment.user.image);
+
   return (
-    <div className="comment-card row" key={key}>
+    <div className="comment-card row">
       <div className="col-1">
         <img
           src={comment.user.image}
@@ -12,7 +15,7 @@ export default function CommentCard({ comment, key }) {
       </div>
       <div className="col-11">
         <div className="d-flex justify-content-between mb-0 pb-0">
-          <h4>{comment.user.name}</h4>
+          <h4 className="mb-0">{comment.user.name}</h4>
           <div>Reply</div>
         </div>
         <p>@{comment.user.username}</p>

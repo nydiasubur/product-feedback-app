@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { FeedbackListContext } from "../Main";
+import React, { useContext, useState } from "react";
+import { FeedbackListContext, CurrentUserContext } from "../Main";
 import { useParams, Link } from "react-router-dom";
 import CommentCard from "./CommentCard";
 
@@ -7,14 +7,56 @@ export default function FeedbackDetail() {
   // display the feedback defatils of the feedback id passed
   const { id } = useParams();
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  const copyOfFeedbackList = [...feedbackList];
+  //console.log("copy of feedback list", copyOfFeedbackList);
+  const { currentUser } = useContext(CurrentUserContext);
+  //console.log("currentUser in feedbackdetail page", currentUser);
   const feedback = feedbackList.find(
     (feedback) => feedback.id === parseInt(id)
   );
+  //console.log("feedback does it exist", feedback);
+  const currentFeedbackObject = copyOfFeedbackList.find(
+    (feedback) => feedback.id === parseInt(id)
+  );
+  const feedbackArrayIndex = copyOfFeedbackList.findIndex(
+    (feedback) => feedback.id === parseInt(id)
+  );
+  //need to fix new comment functionality
+  //1. make the currentUser information a global variable.
+  //when adding a new comment, the information should be passed in accordance to the JSON format.
+  //decide the ID, add the same info of user, and then just add the content.
+  const [newComment, setNewComment] = useState("");
+
+  //console.log("newcomment", newComment);
+
+  function handlePostComment(e) {
+    e.preventDefault();
+
+    const newCommentObject = {
+      id: currentFeedbackObject.comments.length + 1,
+      content: newComment,
+      user: currentUser,
+    };
+
+    const combinationOfComments = [
+      ...currentFeedbackObject.comments,
+      newCommentObject,
+    ];
+
+    copyOfFeedbackList[feedbackArrayIndex].comments = combinationOfComments;
+    setFeedbackList(copyOfFeedbackList);
+    alert("Comment Added Successfully");
+
+    document.getElementById("commentInput").value = "";
+  }
+
   return (
     <div className="container mt-5 ">
       <div className="d-flex justify-content-between">
         <Link to="/"> Go Back</Link>
-        <button className="blue-button">Edit Feedback</button>
+        <button className="blue-button">
+          <Link to={`/edit-feedback/:${id}`}>Edit Feedback</Link>
+        </button>
       </div>
 
       <div className="row feedback-card mt-3 mb-3 p-4">
@@ -69,12 +111,36 @@ export default function FeedbackDetail() {
       <div className="mt-5 comment-section">
         <h3 className="mb-5"> {feedback.comments?.length} Comments</h3>
         {/* if comments array length is not empty, display comment */}
-        {feedback.comments.length > 0 &&
-          feedback.comments.map((comment) => (
-            <CommentCard comment={comment} key={comment.id} />
-          ))}
+
+        {feedback?.comments?.map((comment) => {
+          //console.log("Processing comment:", comment);
+          return <CommentCard comment={comment} key={comment?.id || "no-id"} />;
+        })}
 
         <div className="comment-card"></div>
+      </div>
+
+      {/*add comment section*/}
+      <div class="container mt-4">
+        <form>
+          <div class="form-group">
+            <label for="commentInput">Your Comment</label>
+            <input
+              type="text"
+              class="form-control"
+              id="commentInput"
+              placeholder="Enter your comment"
+              onChange={(e) => setNewComment(e.target.value)}
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onClick={handlePostComment}
+          >
+            Post Comment
+          </button>
+        </form>
       </div>
     </div>
   );

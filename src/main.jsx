@@ -6,9 +6,12 @@ import data from "../data.json";
 import useLocalStorage from "use-local-storage";
 import NotFoundPage from "./components/NotFoundPage.jsx";
 import CreateNewFeedbackPage from "./components/CreateNewFeedbackPage.jsx";
+import EditFeedbackPage from "./components/EditFeedbackPage.jsx";
 import FeedbackDetail from "./components/FeedbackDetail.jsx";
 
 export const FeedbackListContext = createContext();
+export const CurrentUserContext = createContext();
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +28,11 @@ const router = createBrowserRouter([
     element: <FeedbackDetail />,
     errorElement: <NotFoundPage />,
   },
+  {
+    path: "/edit-feedback/:id",
+    element: <EditFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
 ]);
 
 function Main() {
@@ -32,11 +40,15 @@ function Main() {
     "feedbackList",
     data.productRequests
   );
+  const currentUser = data.currentUser;
+  //console.log("main page curr user", currentUser);
   return (
     <StrictMode>
-      <FeedbackListContext.Provider value={{ feedbackList, setFeedbackList }}>
-        <RouterProvider router={router} />
-      </FeedbackListContext.Provider>
+      <CurrentUserContext.Provider value={{ currentUser }}>
+        <FeedbackListContext.Provider value={{ feedbackList, setFeedbackList }}>
+          <RouterProvider router={router} />
+        </FeedbackListContext.Provider>
+      </CurrentUserContext.Provider>
     </StrictMode>
   );
 }
