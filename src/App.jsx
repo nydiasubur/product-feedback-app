@@ -2,6 +2,7 @@ import "./styles/App.css";
 import "./styles/Navbar.css";
 import "./styles/AddFeedbackHeader.css";
 import "./styles/Comments.css";
+import "./styles/Forms.css";
 import React, { useState, createContext, useContext } from "react";
 import Mainpage from "./components/Mainpage";
 import Navbar from "./components/Navbar";

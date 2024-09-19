@@ -3,6 +3,7 @@
   --violet-blue: #4661e6;
   --violet-blue-opacity: rgba(70, 97, 230, 0.7);
   --main-dark-blue: #3a4374;
+  --main-dark-blue-opacity: rgba(55, 63, 104, 0.7);
   --very-light-purple: #f2f4ff;
   --white: #ffffff;
   --light-gray: #f7f8fd;
@@ -12,6 +13,10 @@
 body {
   background-color: var(--light-gray);
   font-family: "Jost", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 p {
@@ -59,6 +64,10 @@ h4 {
 .semi-bold-font-style {
   font-weight: 600;
 }
+.semi-bold-grey-font-style {
+  font-weight: 500;
+  color: var(--gray);
+}
 
 .category-button {
   border-radius: 10px;
@@ -82,7 +91,7 @@ h4 {
   color: var(--white);
   font-size: 14px;
   border: none;
-  padding: 12px;
+  padding: 12px 20px 12px 20px;
 }
 .violet-button:hover {
   background-color: rgba(173, 31, 234, 0.7); /* Red with 50% opacity */
@@ -97,10 +106,25 @@ h4 {
   color: var(--white);
   font-size: 14px;
   border: none;
-  padding: 12px;
+  padding: 12px 20px 12px 20px;
 }
 .blue-button:hover {
   background-color: var(--violet-blue-opacity);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.dark-blue-button {
+  border-radius: 10px;
+  background-color: var(--main-dark-blue);
+  font-weight: 600;
+  color: var(--white);
+  font-size: 14px;
+  border: none;
+  padding: 12px 20px 12px 20px;
+}
+.dark-blue-button:hover {
+  background-color: var(--main-dark-blue-opacity);
   color: var(--white);
   cursor: pointer;
 }

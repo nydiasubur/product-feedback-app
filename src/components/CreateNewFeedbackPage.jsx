@@ -12,7 +12,7 @@ export default function CreateNewFeedbackPage() {
     title: "",
     category: "",
     upvotes: 0,
-    status: "",
+    status: "suggestion",
     description: "",
   });
 
@@ -59,27 +59,51 @@ export default function CreateNewFeedbackPage() {
   }
 
   return (
-    <div>
-      <Link to="/"> Go Back</Link>
-      <form id="add-feedback-form" className="create-edit-card">
-        <h2>Create New Feedback</h2>
+    <div className="container d-flex flex-column align-items-center  pt-5 mt-5">
+      <form
+        id="add-feedback-form"
+        className="create-edit-card p-5 mt-5 form-header-color position-relative"
+      >
+        <Link
+          to="/"
+          className="d-flex align-self-start go-back-position semi-bold-grey-font-style"
+        >
+          {" "}
+          <div className="me-3">
+            <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6 9L2 5l4-4"
+                stroke="#4661E6"
+                stroke-width="2"
+                fill="none"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div>Go Back</div>
+        </Link>
+        <img
+          src="/public/assets/shared/icon-new-feedback.svg"
+          alt="add feedback icon"
+          className="form-icon-position"
+        />
+        <h1 className="pb-4 pt-4">Create New Feedback</h1>
         <div class="form-section">
           <label for="feedback-title" class="form-label">
-            <h3>Feedback Title</h3>
+            <h3 className="mt-4 mb-0">Feedback Title</h3>
           </label>
           <p class="description">Add a short, descriptive headline</p>
           <input
             type="text"
             class="form-control"
             id="feedback-title"
-            placeholder="Enter feedback title"
             onChange={handleTitleInput}
           />
         </div>
 
         <div class="form-section">
           <label for="sort-category" class="form-label">
-            <h3>Category</h3>
+            <h3 className="mt-4 mb-0">Category</h3>
           </label>
           <p class="description">Choose a category for your feedback</p>
           <select
@@ -99,28 +123,27 @@ export default function CreateNewFeedbackPage() {
 
         <div class="form-section">
           <label for="feedback-description" class="form-label">
-            <h3>Feedback Description</h3>
+            <h3 className="mt-4 mb-0">Feedback Detail</h3>
           </label>
           <p class="description">
             Include any specific comments on what should be improved, added,
             etc.
           </p>
-          <input
-            type="text"
+
+          <textarea
+            onChange={handleDescriptionInput}
             class="form-control"
             id="feedback-description"
-            placeholder="Enter feedback description"
-            onChange={handleDescriptionInput}
-          />
+          ></textarea>
         </div>
 
-        <div class="d-flex justify-content-between mt-4">
-          <button type="button" class="btn btn-secondary">
-            Cancel
+        <div class="d-flex mt-4 justify-content-end">
+          <button type="button" className="btn dark-blue-button mx-4">
+            <Link to="/">Cancel</Link>
           </button>
           <button
             type="submit"
-            class="btn btn-primary"
+            className="btn btn-primary violet-button"
             onClick={handleAddFeedbackSubmit}
           >
             Add Feedback

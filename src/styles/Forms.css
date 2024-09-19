@@ -1,0 +1,22 @@
+.form-header-color {
+  color: var(--main-dark-blue);
+}
+
+input[type="text"],
+select#sort-category,
+#feedback-description {
+  background-color: var(--light-gray);
+  border: none;
+}
+#feedback-description {
+  height: 150px;
+}
+.go-back-position {
+  position: absolute;
+  top: -90px;
+  left: 0px;
+}
+.form-icon-position {
+  position: absolute;
+  top: -30px;
+}
