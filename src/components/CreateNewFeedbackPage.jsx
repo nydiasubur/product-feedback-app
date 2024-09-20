@@ -38,7 +38,7 @@ export default function CreateNewFeedbackPage() {
   }
 
   function handleIDupdate() {
-    const maxID = feedbackList.reduce((accumulator, currentFeedback) => {
+    const maxID = feedbackList?.reduce((accumulator, currentFeedback) => {
       return accumulator.id > currentFeedback.id
         ? accumulator.id
         : currentFeedback.id;
@@ -46,16 +46,18 @@ export default function CreateNewFeedbackPage() {
     userInputRef.current = { ...userInputRef.current, id: maxID + 1 };
   }
   function handleAddFeedbackSubmit(e) {
-    //set the state of
-
     e.preventDefault();
-    handleIDupdate();
-    setFeedbackList([...feedbackList, userInputRef.current]);
-    alert("Feedback added successfully");
-    // Reset the form
+    alert("Adding your feedback..⏳");
+    setTimeout(() => {
+      handleIDupdate();
+      setFeedbackList([...feedbackList, userInputRef.current]);
 
-    document.getElementById("feedback-description").value = "";
-    document.getElementById("feedback-title").value = "";
+      // Reset the form
+      document.getElementById("feedback-description").value = "";
+      document.getElementById("feedback-title").value = "";
+      alert("Feedback added successfully");
+      window.location.href = "/";
+    }, 2000);
   }
 
   return (

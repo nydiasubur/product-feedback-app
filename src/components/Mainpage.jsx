@@ -60,6 +60,7 @@ export default function Mainpage({ feedbackList, setFeedbackList }) {
         </div>
 
         {/*</AddFeedbackHeader>*/}
+
         <FeedbackCards
           feedbackList={feedbackList}
           setFeedbackList={setFeedbackList}
