@@ -4,10 +4,12 @@ import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import data from "../data.json";
 import useLocalStorage from "use-local-storage";
+
 import NotFoundPage from "./components/NotFoundPage.jsx";
 import CreateNewFeedbackPage from "./components/CreateNewFeedbackPage.jsx";
 import EditFeedbackPage from "./components/EditFeedbackPage.jsx";
 import FeedbackDetail from "./components/FeedbackDetail.jsx";
+import RoadmapPage from "./components/RoadmapPage.jsx";
 
 export const FeedbackListContext = createContext();
 export const CurrentUserContext = createContext();
@@ -31,6 +33,11 @@ const router = createBrowserRouter([
   {
     path: "/edit-feedback/:id",
     element: <EditFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/roadmap",
+    element: <RoadmapPage />,
     errorElement: <NotFoundPage />,
   },
 ]);

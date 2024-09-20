@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { FeedbackListContext } from "../Main";
 
 export default function Navbar() {
+  let planned = 0;
+  let inProgress = 0;
+  let live = 0;
+  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  feedbackList.map((feedback) => {
+    switch (feedback.status) {
+      case "planned":
+        planned++;
+        break;
+      case "in-progress":
+        inProgress++;
+        break;
+      case "live":
+        live++;
+        break;
+    }
+  });
+
   return (
     <>
       <div className="">
@@ -27,11 +47,11 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="col">
-              View
+              <Link to="/roadmap">View</Link>
               <ul>
-                <li>2</li>
-                <li>3</li>
-                <li>1</li>
+                <li>{planned}</li>
+                <li>{inProgress}</li>
+                <li>{live}</li>
               </ul>
             </div>
           </div>
