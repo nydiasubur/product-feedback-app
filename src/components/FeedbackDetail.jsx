@@ -21,10 +21,7 @@ export default function FeedbackDetail() {
   const feedbackArrayIndex = copyOfFeedbackList.findIndex(
     (feedback) => feedback.id === parseInt(id)
   );
-  //need to fix new comment functionality
-  //1. make the currentUser information a global variable.
-  //when adding a new comment, the information should be passed in accordance to the JSON format.
-  //decide the ID, add the same info of user, and then just add the content.
+
   const [newComment, setNewComment] = useState("");
 
   //console.log("newcomment", newComment);

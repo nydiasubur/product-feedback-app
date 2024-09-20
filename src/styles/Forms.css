@@ -4,7 +4,8 @@
 
 input[type="text"],
 select#sort-category,
-#feedback-description {
+#feedback-description,
+#feedback-status {
   background-color: var(--light-gray);
   border: none;
 }

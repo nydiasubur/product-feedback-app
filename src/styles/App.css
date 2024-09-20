@@ -8,6 +8,8 @@
   --white: #ffffff;
   --light-gray: #f7f8fd;
   --gray: #647196;
+  --red: #d73737;
+  --red-opacity: rgba(215, 55, 55, 0.7);
 }
 
 body {
@@ -125,6 +127,21 @@ h4 {
 }
 .dark-blue-button:hover {
   background-color: var(--main-dark-blue-opacity);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.red-button {
+  border-radius: 10px;
+  background-color: var(--red);
+  font-weight: 600;
+  color: var(--white);
+  font-size: 14px;
+  border: none;
+  padding: 12px 20px 12px 20px;
+}
+.red-button:hover {
+  background-color: var(--red-opacity);
   color: var(--white);
   cursor: pointer;
 }

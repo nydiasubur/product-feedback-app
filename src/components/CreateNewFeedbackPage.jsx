@@ -112,12 +112,12 @@ export default function CreateNewFeedbackPage() {
             id="sort-category"
             onChange={handleSortCategoryInput}
           >
-            <option value="most-upvotes">All</option>
-            <option value="least-upvotes">UI</option>
-            <option value="most-comments">UX</option>
-            <option value="least-comments">Enhancement</option>
-            <option value="most-comments">Bug</option>
-            <option value="least-comments">Feature</option>
+            <option value="All">All</option>
+            <option value="UI">UI</option>
+            <option value="UX">UX</option>
+            <option value="Enhancement">Enhancement</option>
+            <option value="Bug">Bug</option>
+            <option value="Feature">Feature</option>
           </select>
         </div>
 
