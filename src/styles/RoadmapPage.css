@@ -1,0 +1,32 @@
+.upvote-button-roadmap {
+  background-color: var(--very-light-purple);
+  border-radius: 10px;
+  padding: 8px;
+  font-weight: 500;
+}
+
+.roadmap-card {
+  border: none;
+  border-top: 4px;
+}
+
+.orange-card {
+  border-top: 4px solid #e48965;
+}
+.orange-card ul {
+  color: #e48965;
+}
+
+.purple-card {
+  border-top: 4px solid var(--violet);
+}
+.purple-card ul {
+  color: var(--violet);
+}
+
+.light-blue-card {
+  border-top: 4px solid var(--light-blue);
+}
+.light-blue-card ul {
+  color: var(--light-blue);
+}

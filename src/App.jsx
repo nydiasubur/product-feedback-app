@@ -3,6 +3,7 @@ import "./styles/Navbar.css";
 import "./styles/AddFeedbackHeader.css";
 import "./styles/Comments.css";
 import "./styles/Forms.css";
+import "./styles/RoadmapPage.css";
 import React, { useState, createContext, useContext } from "react";
 import Mainpage from "./components/Mainpage";
 import Navbar from "./components/Navbar";
