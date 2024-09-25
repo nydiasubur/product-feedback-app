@@ -7,7 +7,8 @@ export default function Navbar() {
   let inProgress = 0;
   let live = 0;
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-  feedbackList.map((feedback) => {
+
+  /*feedbackList.map((feedback) => {
     switch (feedback.status) {
       case "planned":
         planned++;
@@ -19,7 +20,7 @@ export default function Navbar() {
         live++;
         break;
     }
-  });
+  });*/
 
   return (
     <>

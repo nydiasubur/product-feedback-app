@@ -7,7 +7,8 @@ export default function FeedbackDetail() {
   // display the feedback defatils of the feedback id passed
   const { id } = useParams();
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-  const copyOfFeedbackList = [...feedbackList];
+  const copyOfFeedbackList = JSON.parse(JSON.stringify([...feedbackList]));
+
   //console.log("copy of feedback list", copyOfFeedbackList);
   const { currentUser } = useContext(CurrentUserContext);
   //console.log("currentUser in feedbackdetail page", currentUser);

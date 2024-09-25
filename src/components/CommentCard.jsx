@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function CommentCard({ comment }) {
-  console.log("card comment", comment);
-  console.log("card comment image", comment.user.image);
+  //console.log("card comment", comment);
+  //console.log("card comment image", comment.user.image);
 
   return (
     <div className="comment-card row">

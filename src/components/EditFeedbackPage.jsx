@@ -7,7 +7,8 @@ export default function EditFeedbackPage() {
   const cleanId = id.replace(":", "");
 
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-  let copyOfFeedbackList = [...feedbackList];
+  let copyOfFeedbackList = JSON.parse(JSON.stringify([...feedbackList]));
+
   console.log("edit feedback copy of feedbacklist", copyOfFeedbackList);
   const selectedFeedback = copyOfFeedbackList?.find(
     (feedback) => feedback.id === parseInt(cleanId)
@@ -72,6 +73,7 @@ export default function EditFeedbackPage() {
     alert("saving your changes..⏳");
     setTimeout(() => {
       copyOfFeedbackList[indexOfSelectedFeedback] = newFeedbackRef.current;
+
       console.log(
         "updated feedbackList after replacing with new edit",
         copyOfFeedbackList

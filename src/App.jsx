@@ -4,13 +4,11 @@ import "./styles/AddFeedbackHeader.css";
 import "./styles/Comments.css";
 import "./styles/Forms.css";
 import "./styles/RoadmapPage.css";
-import React, { useState, createContext, useContext } from "react";
+import React from "react";
 import Mainpage from "./components/Mainpage";
 import Navbar from "./components/Navbar";
-import { FeedbackListContext } from "./main";
 
 function App() {
-  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
   return (
     <>
       <div className="container mt-5 d-flex justify-content-center">
@@ -19,10 +17,7 @@ function App() {
             <Navbar />
           </div>
           <div className="col">
-            <Mainpage
-              feedbackList={feedbackList}
-              setFeedbackList={setFeedbackList}
-            />
+            <Mainpage />
           </div>
         </div>
       </div>
