@@ -5,7 +5,7 @@
   background-image: url(/assets/suggestions/desktop/background-header.png);
   background-repeat: no-repeat;
   color: var(--white);
-
+  width: 255px;
   height: 137px;
   border-radius: 10px;
   display: flex;
@@ -14,10 +14,16 @@
   padding: 10px;
 }
 
-.navbar .tags {
+.navbar .tags,
+.navbar .roadmap {
   background-color: var(--white);
-  padding: 10px;
+  padding: 12px;
+  padding-top: 20px;
   border-radius: 10px;
+  width: 255px;
+}
+.navbar .roadmap {
+  padding: 20px 20px 20px 18px;
 }
 
 select option {
@@ -26,4 +32,15 @@ select option {
 }
 option:hover {
   color: var(--violet);
+}
+
+#view {
+  color: var(--violet-blue);
+  text-decoration: underline;
+
+  cursor: pointer;
+  font-weight: 500;
+}
+#view:hover {
+  color: var(--violet-blue-opacity);
 }

@@ -164,6 +164,7 @@ h4 {
   background-color: var(--violet-blue);
   color: var(--white);
   stroke: var(--white);
+  cursor: pointer;
 }
 .upvote-button:hover path {
 }

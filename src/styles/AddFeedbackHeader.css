@@ -10,8 +10,14 @@
 
 select {
   border: none;
-  background-color: transparent;
+
   color: var(--white);
+}
+.add-feedback-header select#sort-category {
+  background-color: transparent;
+}
+.add-feedback-header select#sort-category:hover {
+  cursor: pointer;
 }
 
 .feedback-card {

@@ -13,7 +13,7 @@ function App() {
     <>
       <div className="container mt-5 d-flex justify-content-center">
         <div className="row">
-          <div className="col navbar mx-2 p-0">
+          <div className="col navbar mx-2 p-0 align-items-start">
             <Navbar />
           </div>
           <div className="col">

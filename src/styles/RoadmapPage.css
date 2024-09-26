@@ -13,20 +13,23 @@
 .orange-card {
   border-top: 4px solid #e48965;
 }
-.orange-card ul {
+.orange-card ul,
+.roadmap .orange-bulletpoint {
   color: #e48965;
 }
 
 .purple-card {
   border-top: 4px solid var(--violet);
 }
-.purple-card ul {
+.purple-card ul,
+.purple-bulletpoint {
   color: var(--violet);
 }
 
 .light-blue-card {
   border-top: 4px solid var(--light-blue);
 }
-.light-blue-card ul {
+.light-blue-card ul,
+.blue-bulletpoint {
   color: var(--light-blue);
 }
