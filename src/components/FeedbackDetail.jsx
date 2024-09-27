@@ -25,6 +25,16 @@ export default function FeedbackDetail() {
 
   const [newComment, setNewComment] = useState("");
 
+  const maxChars = 250;
+
+  // Handle change in textarea
+  const handleInputChange = (e) => {
+    const input = e.target.value;
+    if (input.length <= maxChars) {
+      setNewComment(input);
+    }
+  };
+
   //console.log("newcomment", newComment);
 
   function handlePostComment(e) {
@@ -49,9 +59,23 @@ export default function FeedbackDetail() {
   }
 
   return (
-    <div className="container mt-5 ">
+    <div className="container mt-5 feedback-detail">
       <div className="d-flex justify-content-between">
-        <Link to="/"> Go Back</Link>
+        <Link to="/" className="d-flex semi-bold-grey-font-style">
+          {" "}
+          <div className="me-3">
+            <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6 9L2 5l4-4"
+                stroke="#4661E6"
+                stroke-width="2"
+                fill="none"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div>Go Back</div>
+        </Link>
         <button className="blue-button">
           <Link to={`/edit-feedback/:${id}`}>Edit Feedback</Link>
         </button>
@@ -106,7 +130,7 @@ export default function FeedbackDetail() {
         </div>
       </div>
 
-      <div className="mt-5 comment-section">
+      <div className="mt-5 comment-section p-4">
         <h3 className="mb-5"> {feedback.comments?.length} Comments</h3>
         {/* if comments array length is not empty, display comment */}
 
@@ -119,25 +143,30 @@ export default function FeedbackDetail() {
       </div>
 
       {/*add comment section*/}
-      <div class="container mt-4">
+      <div class="container mt-4 post-comment-section p-4 mb-5 ">
         <form>
           <div class="form-group">
-            <label for="commentInput">Your Comment</label>
-            <input
-              type="text"
-              class="form-control"
+            <h3 className="mb-3">Your Comment</h3>
+            <textarea
+              class="form-control mb-4"
               id="commentInput"
               placeholder="Enter your comment"
-              onChange={(e) => setNewComment(e.target.value)}
+              onChange={handleInputChange}
             />
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary"
-            onClick={handlePostComment}
-          >
-            Post Comment
-          </button>
+          <div className="d-flex">
+            <div className="text-end">
+              <p>{maxChars - newComment.length} characters left </p>
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-primary d-flex ms-auto pe-3 ps-3 violet-button"
+              onClick={handlePostComment}
+            >
+              Post Comment
+            </button>
+          </div>
         </form>
       </div>
     </div>

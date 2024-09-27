@@ -4,6 +4,7 @@ import "./styles/AddFeedbackHeader.css";
 import "./styles/Comments.css";
 import "./styles/Forms.css";
 import "./styles/RoadmapPage.css";
+import "./styles/FeedbackDetail.css";
 import React from "react";
 import Mainpage from "./components/Mainpage";
 import Navbar from "./components/Navbar";

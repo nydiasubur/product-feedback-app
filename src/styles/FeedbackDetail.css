@@ -1,0 +1,17 @@
+.feedback-detail {
+  width: var(--desktop-container-width);
+}
+
+.comment-section {
+  background-color: var(--white);
+  margin-top: 20px;
+  width: var(--desktop-container-width);
+  border-radius: 10px;
+}
+
+.post-comment-section {
+  background-color: var(--white);
+  margin-top: 20px;
+  width: var(--desktop-container-width);
+  border-radius: 10px;
+}

@@ -11,6 +11,7 @@
   --gray: #647196;
   --red: #d73737;
   --red-opacity: rgba(215, 55, 55, 0.7);
+  --desktop-container-width: 825px;
 }
 
 body {
