@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      <div className="header mb-3">
+      <div className="header mb-3 ps-3">
         <h2>Frontend Mentor</h2>
         <div>Feedback Board</div>
       </div>

@@ -7,12 +7,12 @@ export default function () {
   console.log("feedbackList cards", feedbackList);
   const [hasUpvoted, setHasUpvoted] = useState(false);
   const feedbackListCopy = JSON.parse(JSON.stringify([...feedbackList]));
-  console.log("feedbackListCopy cards", feedbackList);
+  //console.log("feedbackListCopy cards", feedbackList);
 
   function handleUpvote(feedback) {
-    console.log("feedback when upvote is click", feedback);
+    //console.log("feedback when upvote is click", feedback);
     const feedbackCopy = JSON.parse(JSON.stringify(feedback));
-    console.log("feedbackCopy when u destructure it?", feedbackCopy);
+    //console.log("feedbackCopy when u destructure it?", feedbackCopy);
     const position = feedbackList.findIndex(
       (currentFeedback) => currentFeedback.id === feedback.id
     ); //returns index
