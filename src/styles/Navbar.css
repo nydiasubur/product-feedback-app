@@ -1,4 +1,5 @@
 .navbar {
+  flex-direction: column;
   width: 255px;
 }
 .navbar .header {
@@ -43,4 +44,27 @@ option:hover {
 }
 #view:hover {
   color: var(--violet-blue-opacity);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar {
+    display: flex; /* Ensure it's a flex container */
+    flex-direction: row; /* Align items in a row */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center;
+    width: 100%;
+  }
+  .navbar .header,
+  .navbar .tags {
+    margin-right: 12px; /* Adds horizontal space between items */
+  }
+
+  .app.container {
+    display: flex;
+    justify-content: center; /* Center the entire .app container content */
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .main {
+  }
 }

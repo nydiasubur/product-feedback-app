@@ -9,10 +9,7 @@ export default function Mainpage() {
   return (
     <>
       <section className="main">
-        {/*<AddFeedbackHeader>*/}
         <AddFeedbackHeader />
-
-        {/*</AddFeedbackHeader>*/}
 
         <FeedbackCards
           feedbackList={feedbackList}
