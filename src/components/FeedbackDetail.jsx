@@ -39,21 +39,47 @@ export default function FeedbackDetail() {
 
   function handlePostComment(e) {
     e.preventDefault();
+    //this part is assuming that the comments object is not empty
+    let newID = currentFeedbackObject.comments?.length
+      ? currentFeedbackObject.comments.length + 1
+      : 1;
 
     const newCommentObject = {
-      id: currentFeedbackObject.comments.length + 1,
+      id: newID,
       content: newComment,
       user: currentUser,
     };
 
-    const combinationOfComments = [
-      ...currentFeedbackObject.comments,
-      newCommentObject,
-    ];
+    if (currentFeedbackObject.comments) {
+      const combinationOfComments = [
+        ...currentFeedbackObject.comments,
+        newCommentObject,
+      ];
 
-    copyOfFeedbackList[feedbackArrayIndex].comments = combinationOfComments;
-    setFeedbackList(copyOfFeedbackList);
+      copyOfFeedbackList[feedbackArrayIndex].comments = combinationOfComments;
+      setFeedbackList(copyOfFeedbackList);
+    } else if (!currentFeedbackObject.comments) {
+      const currentFeedbackObjectWithCommentAdded = {
+        ...currentFeedbackObject,
+        comments: [newCommentObject],
+      };
+
+      copyOfFeedbackList[feedbackArrayIndex] =
+        currentFeedbackObjectWithCommentAdded;
+      setFeedbackList(copyOfFeedbackList);
+    }
+
     alert("Comment Added Successfully");
+
+    //section below is for when comment object is empty
+
+    /*
+    const newCommentObject = {
+      id: newID,
+      content: newComment,
+      user: currentUser,
+    };
+    */
 
     document.getElementById("commentInput").value = "";
   }
@@ -136,10 +162,17 @@ export default function FeedbackDetail() {
 
         {feedback?.comments?.map((comment) => {
           //console.log("Processing comment:", comment);
-          return <CommentCard comment={comment} key={comment?.id || "no-id"} />;
+          return (
+            <CommentCard
+              comment={comment}
+              key={comment?.id || "no-id"}
+              copyOfCurrentFeedbackObject={currentFeedbackObject}
+              copyOfFeedbackList={copyOfFeedbackList}
+              feedbackArrayIndex={feedbackArrayIndex}
+              commentID={comment.id}
+            />
+          );
         })}
-
-        <div className="comment-card"></div>
       </div>
 
       {/*add comment section*/}

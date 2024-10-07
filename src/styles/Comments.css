@@ -8,3 +8,19 @@
   color: var(--violet);
   font-weight: 600;
 }
+
+#username {
+  position: relative;
+  top: -8px;
+  margin-bottom: 0px;
+}
+
+#reply-button {
+  cursor: pointer;
+  color: var(--violet-blue);
+  font-weight: 500;
+}
+
+#reply-button:hover {
+  color: var(--violet-blue-opacity);
+}
