@@ -11,7 +11,6 @@ export default function Mainpage() {
     <>
       <section className="main">
         <AddFeedbackHeader />
-
         <FeedbackCards
           feedbackList={feedbackList}
           setFeedbackList={setFeedbackList}

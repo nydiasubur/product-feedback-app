@@ -44,7 +44,7 @@ export default function AddFeedbackHeader() {
     <>
       {" "}
       <div className="row add-feedback-header ">
-        <div className="col-md-9 col-sm-5 d-flex  align-items-center">
+        <div className="col-md-9 col-5 d-flex  align-items-center">
           <div id="feedback-header-logo">
             {" "}
             <svg
@@ -87,7 +87,7 @@ export default function AddFeedbackHeader() {
             </select>
           </div>
         </div>
-        <div className="  col-md-3 col-sm-7 d-flex justify-content-end">
+        <div className="  col-md-3 col-7 d-flex justify-content-end">
           <button className="violet-button ">
             <Link to="/create-new-feedback">+ Add Feedback</Link>
           </button>

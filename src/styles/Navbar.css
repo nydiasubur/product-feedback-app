@@ -13,6 +13,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .navbar .tags,
@@ -25,6 +26,9 @@
 }
 .navbar .roadmap {
   padding: 20px 20px 20px 18px;
+}
+.mobile-nav-toggle {
+  display: none;
 }
 
 select option {
@@ -71,9 +75,58 @@ option:hover {
 
 /*phone size*/
 @media (max-width: 767px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
   .navbar {
     display: flex; /* Ensure it's a flex container */
     flex-direction: column; /* Align items in a row */
     width: 100%;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .mobile-nav-toggle {
+    display: block;
+    z-index: 2000;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: url("/public/assets/shared/mobile/icon-hamburger.svg") no-repeat;
+    width: 2rem;
+    aspect-ratio: 1;
+    border: none;
+  }
+  .mobile-nav-toggle[hamburgerToggleButton="false"] {
+    background: url("/public/assets/shared/mobile/icon-close.svg") no-repeat;
+  }
+  .navbar .header {
+    z-index: 1000;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+  }
+  .navbar-mobile-sub-container {
+    position: fixed;
+    inset: 0 0 0 25%;
+    background-color: var(--light-gray);
+    padding: 30px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .navbar-mobile-sub-container[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .navbar .tags,
+  .navbar .roadmap {
+    width: 100%;
+  }
+  .navbar .tags {
+    margin-top: 140px;
   }
 }

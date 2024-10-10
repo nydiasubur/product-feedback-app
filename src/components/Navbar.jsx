@@ -48,59 +48,84 @@ export default function Navbar() {
     setFeedbackList(filteredFeedbackList);
   }
 
+  function showMobileNavbar() {
+    const navbarMobileSubContainer = document.querySelector(
+      ".navbar-mobile-sub-container"
+    );
+    const isVisible = navbarMobileSubContainer.getAttribute("data-visible");
+    const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+    const hamburgerToggleButton = mobileNavToggle.getAttribute(
+      "hamburgerToggleButton"
+    );
+    if (isVisible.trim() === "false") {
+      navbarMobileSubContainer.setAttribute("data-visible", "true");
+      mobileNavToggle.setAttribute("hamburgerToggleButton", "false");
+    } else {
+      navbarMobileSubContainer.setAttribute("data-visible", "false");
+      mobileNavToggle.setAttribute("hamburgerToggleButton", "true");
+    }
+  }
+
   return (
     <div className="navbar">
-      <div className="header mb-3 ps-3 ">
+      <button
+        className="mobile-nav-toggle"
+        onClick={showMobileNavbar}
+        hamburgerToggleButton="true"
+      ></button>
+      <div className="header ps-3 ">
         <h2>Frontend Mentor</h2>
         <div>Feedback Board</div>
       </div>
-      <div className="tags regular-font-style-2 d-flex justify-content-between flex-wrap mb-3">
-        <div className=" category-button m-2" onClick={handleCategoryClick}>
-          All
+      <div className="navbar-mobile-sub-container" data-visible="false">
+        <div className="tags regular-font-style-2 d-flex justify-content-between flex-wrap mb-3">
+          <div className=" category-button m-2" onClick={handleCategoryClick}>
+            All
+          </div>
+          <div className=" category-button m-2" onClick={handleCategoryClick}>
+            UI
+          </div>
+          <div className=" category-button m-2" onClick={handleCategoryClick}>
+            UX
+          </div>
+          <div className=" category-button m-2" onClick={handleCategoryClick}>
+            Enhancement
+          </div>
+          <div className=" category-button m-2" onClick={handleCategoryClick}>
+            Bug
+          </div>
+          <div className=" category-button m-2" onClick={handleCategoryClick}>
+            Feature
+          </div>
         </div>
-        <div className=" category-button m-2" onClick={handleCategoryClick}>
-          UI
+        <div className="roadmap">
+          <div className="d-flex justify-content-between mb-3">
+            <h3> Roadmap</h3>
+            <Link to="/roadmap" id="view">
+              View
+            </Link>
+          </div>
+          <ul>
+            <li className="orange-bulletpoint">
+              <div className="d-flex justify-content-between ">
+                <p>Planned</p>
+                <h3>{planned}</h3>
+              </div>
+            </li>
+            <li className="purple-bulletpoint">
+              <div className="d-flex justify-content-between ">
+                <p>In-Progress</p>
+                <h3>{inProgress}</h3>
+              </div>
+            </li>
+            <li className="blue-bulletpoint">
+              <div className="d-flex justify-content-between">
+                <p>Live</p>
+                <h3>{live}</h3>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div className=" category-button m-2" onClick={handleCategoryClick}>
-          UX
-        </div>
-        <div className=" category-button m-2" onClick={handleCategoryClick}>
-          Enhancement
-        </div>
-        <div className=" category-button m-2" onClick={handleCategoryClick}>
-          Bug
-        </div>
-        <div className=" category-button m-2" onClick={handleCategoryClick}>
-          Feature
-        </div>
-      </div>
-      <div className="roadmap">
-        <div className="d-flex justify-content-between mb-3">
-          <h3> Roadmap</h3>
-          <Link to="/roadmap" id="view">
-            View
-          </Link>
-        </div>
-        <ul>
-          <li className="orange-bulletpoint">
-            <div className="d-flex justify-content-between ">
-              <p>Planned</p>
-              <h3>{planned}</h3>
-            </div>
-          </li>
-          <li className="purple-bulletpoint">
-            <div className="d-flex justify-content-between ">
-              <p>In-Progress</p>
-              <h3>{inProgress}</h3>
-            </div>
-          </li>
-          <li className="blue-bulletpoint">
-            <div className="d-flex justify-content-between">
-              <p>Live</p>
-              <h3>{live}</h3>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
   );

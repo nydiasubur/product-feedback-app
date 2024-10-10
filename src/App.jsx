@@ -12,12 +12,12 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
-      <div className="app container mt-5 justify-content-center  d-flex">
+      <div className="app mt-5 justify-content-center  d-flex">
         <div className="row align-items-start">
           <div className="col-12 col-lg-auto mx-2 p-0">
             <Navbar />
           </div>
-          <div className="col-12 col-lg-auto ">
+          <div className="col-12 col-lg-auto container">
             <Mainpage />
           </div>
         </div>
