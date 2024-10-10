@@ -1,3 +1,4 @@
+/*styling for feedback header, Add feedback form PAGE, edit feedback form PAGE*/
 .main {
   width: 825px;
 }
@@ -24,4 +25,50 @@ select {
   padding: 15px;
   background-color: var(--white);
   border-radius: 10px;
+}
+
+/*add feedback PAGE*/
+.cancel-button {
+  margin-right: 20px;
+}
+
+.delete-button {
+  margin-right: 20px;
+}
+
+/*mobile size media query*/
+
+@media (max-width: 767px) {
+  .feedback-page-form-container #add-feedback-form {
+    width: 100%;
+    margin: auto;
+  }
+  .buttons-container {
+    flex-direction: column;
+  }
+  .buttons-container button {
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main {
+    width: 100%;
+  }
+  .add-feedback-header {
+    width: 100%;
+    margin: auto;
+  }
+  .add-feedback-header select#sort-category {
+    width: 100%;
+  }
+  .feedback-card {
+    width: 100%;
+    margin: auto;
+  }
+  #feedback-header-logo,
+  #number-of-suggestions {
+    display: none;
+  }
 }

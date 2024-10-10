@@ -61,7 +61,7 @@ export default function CreateNewFeedbackPage() {
   }
 
   return (
-    <div className="container d-flex flex-column align-items-center  pt-5 mt-5">
+    <div className="feedback-page-form-container container d-flex flex-column align-items-center  pt-5 mt-5">
       <form
         id="add-feedback-form"
         className="create-edit-card p-5 mt-5 form-header-color position-relative"
@@ -139,8 +139,8 @@ export default function CreateNewFeedbackPage() {
           ></textarea>
         </div>
 
-        <div class="d-flex mt-4 justify-content-end">
-          <button type="button" className="btn dark-blue-button mx-4">
+        <div class="d-flex mt-4 justify-content-end buttons-container">
+          <button type="button" className="btn dark-blue-button cancel-button">
             <Link to="/">Cancel</Link>
           </button>
           <button

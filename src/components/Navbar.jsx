@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FeedbackListContext } from "../Main";
 
@@ -7,6 +7,17 @@ export default function Navbar() {
   let inProgress = 0;
   let live = 0;
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  const feedbackLength = feedbackList.length;
+  const originalFeedbackListRef = useRef([]);
+
+  useEffect(() => {
+    if (feedbackList.length > 0) {
+      originalFeedbackListRef.current = JSON.parse(
+        JSON.stringify(feedbackList)
+      );
+    }
+  }, []); // Empty dependency array ensures this runs only once
+  console.log("originalfeedbacklist", originalFeedbackListRef);
 
   feedbackList.map((feedback) => {
     switch (feedback.status) {
@@ -22,6 +33,21 @@ export default function Navbar() {
     }
   });
 
+  function handleCategoryClick(e) {
+    const categorySelected = e.target.innerText.toLowerCase().trim();
+    console.log("category selected", categorySelected);
+
+    if (categorySelected === "all") {
+      setFeedbackList(originalFeedbackListRef.current); //return the original feedbacklist.
+      return;
+    }
+    const filteredFeedbackList = originalFeedbackListRef.current.filter(
+      (feedback) => feedback.category === categorySelected
+    );
+
+    setFeedbackList(filteredFeedbackList);
+  }
+
   return (
     <div className="navbar">
       <div className="header mb-3 ps-3 ">
@@ -29,12 +55,24 @@ export default function Navbar() {
         <div>Feedback Board</div>
       </div>
       <div className="tags regular-font-style-2 d-flex justify-content-between flex-wrap mb-3">
-        <div className=" category-button m-2">All</div>
-        <div className=" category-button m-2">UI</div>
-        <div className=" category-button m-2">UX</div>
-        <div className=" category-button m-2">Enhancement</div>
-        <div className=" category-button m-2">Bug</div>
-        <div className=" category-button m-2">Feature</div>
+        <div className=" category-button m-2" onClick={handleCategoryClick}>
+          All
+        </div>
+        <div className=" category-button m-2" onClick={handleCategoryClick}>
+          UI
+        </div>
+        <div className=" category-button m-2" onClick={handleCategoryClick}>
+          UX
+        </div>
+        <div className=" category-button m-2" onClick={handleCategoryClick}>
+          Enhancement
+        </div>
+        <div className=" category-button m-2" onClick={handleCategoryClick}>
+          Bug
+        </div>
+        <div className=" category-button m-2" onClick={handleCategoryClick}>
+          Feature
+        </div>
       </div>
       <div className="roadmap">
         <div className="d-flex justify-content-between mb-3">

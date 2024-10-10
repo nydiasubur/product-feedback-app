@@ -68,3 +68,12 @@ option:hover {
   .main {
   }
 }
+
+/*phone size*/
+@media (max-width: 767px) {
+  .navbar {
+    display: flex; /* Ensure it's a flex container */
+    flex-direction: column; /* Align items in a row */
+    width: 100%;
+  }
+}

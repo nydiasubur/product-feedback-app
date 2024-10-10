@@ -38,7 +38,6 @@ export default function CommentCard({
   function handlePostReply(e, username) {
     e.preventDefault();
     //1. if there's no reply object, create key and object
-
     formattedReplyOBject = [
       {
         content: replyInput,
@@ -47,9 +46,7 @@ export default function CommentCard({
       },
     ];
     if (!copyOfCurrentCommentObject.replies) {
-      copyOfCurrentCommentObject.replies = []; // Initialize replies if they don't exist
-
-      // Add the reply to the replies array
+      copyOfCurrentCommentObject.replies = [];
     }
     copyOfCurrentCommentObject.replies.push(formattedReplyOBject[0]);
 
@@ -59,8 +56,6 @@ export default function CommentCard({
 
     setFeedbackList(copyOfFeedbackList);
     setIsVisible(false);
-
-    //2. if there's a reply object, add on to the array
   }
 
   return (

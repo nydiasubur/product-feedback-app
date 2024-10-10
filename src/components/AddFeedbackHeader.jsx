@@ -44,8 +44,8 @@ export default function AddFeedbackHeader() {
     <>
       {" "}
       <div className="row add-feedback-header ">
-        <div className="col-9 d-flex  align-items-center">
-          <div>
+        <div className="col-md-9 col-sm-5 d-flex  align-items-center">
+          <div id="feedback-header-logo">
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export default function AddFeedbackHeader() {
               </defs>
             </svg>{" "}
           </div>
-          <div className="mx-5 fw-bolder">
+          <div className="mx-5 fw-bolder" id="number-of-suggestions">
             {" "}
             {feedbackList?.length > 0 ? feedbackList?.length : 0} Suggestions
           </div>
@@ -87,7 +87,7 @@ export default function AddFeedbackHeader() {
             </select>
           </div>
         </div>
-        <div className="col-3  d-flex justify-content-end">
+        <div className="  col-md-3 col-sm-7 d-flex justify-content-end">
           <button className="violet-button ">
             <Link to="/create-new-feedback">+ Add Feedback</Link>
           </button>

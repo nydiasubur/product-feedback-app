@@ -6,6 +6,7 @@ import { FeedbackListContext } from "../Main.jsx";
 
 export default function Mainpage() {
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  //const feedbacktobedisplayed
   return (
     <>
       <section className="main">

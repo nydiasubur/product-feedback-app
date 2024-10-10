@@ -85,7 +85,7 @@ export default function EditFeedbackPage() {
   }
 
   return (
-    <div className="container d-flex flex-column align-items-center  pt-5 mt-5">
+    <div className="feedback-page-form-container container d-flex flex-column align-items-center  pt-5 mt-5">
       <form
         id="add-feedback-form"
         className="create-edit-card p-5 mt-5 form-header-color position-relative"
@@ -185,20 +185,23 @@ export default function EditFeedbackPage() {
           ></textarea>
         </div>
 
-        <div class="d-flex mt-4 justify-content-end">
+        <div class="d-flex mt-4 justify-content-end buttons-container">
           <button
             type="button"
-            className="btn red-button mx-4 justify-content-start"
+            className="btn red-button delete-button justify-content-start order-3 order-md-1"
             onClick={handleDeleteFeedback}
           >
             Delete
           </button>
-          <button type="button" className="btn dark-blue-button mx-4">
+          <button
+            type="button"
+            className="btn dark-blue-button cancel-button order-2 order-md-2"
+          >
             <Link to="/">Cancel</Link>
           </button>
           <button
             type="submit"
-            className="btn btn-primary violet-button"
+            className="btn btn-primary violet-button order-1 order-md-3"
             onClick={handleAddFeedbackSubmit}
           >
             Save Changes

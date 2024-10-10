@@ -2,9 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FeedbackListContext } from "../Main";
 
-export default function () {
+export default function FeedbackCards() {
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-  console.log("feedbackList cards", feedbackList);
   const [hasUpvoted, setHasUpvoted] = useState(false);
   const feedbackListCopy = JSON.parse(JSON.stringify([...feedbackList]));
   //console.log("feedbackListCopy cards", feedbackList);
@@ -53,7 +52,10 @@ export default function () {
     return (
       <>
         {feedbackList?.map((feedback) => (
-          <div className="row feedback-card mt-3 mb-3 p-4" key={feedback.id}>
+          <div
+            className="row feedback-card mt-3 mb-3 p-4 order-md-1 order-3"
+            key={feedback.id}
+          >
             <div
               className="col-1 mx-2 d-flex upvote-button-section flex-column align-items-center"
               onClick={(e) => {
@@ -78,7 +80,7 @@ export default function () {
               <div className="upvote-count">{feedback.upvotes}</div>
             </div>
 
-            <div className="col-9 ">
+            <div className="col-9 order-1 order-md-2 ">
               <Link to={`/feedback/${feedback.id}`}>
                 <h3 className="semi-bold-font-style">
                   {feedback.title} {/*feedback title*/}
@@ -89,7 +91,7 @@ export default function () {
                 </div>
               </Link>
             </div>
-            <div className="col-2 d-flex align-items-center">
+            <div className="col-2 d-flex align-items-center order-2 order-md-3">
               <span className="mx-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
