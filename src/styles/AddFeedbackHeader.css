@@ -1,4 +1,4 @@
-/*styling for feedback header, Add feedback form PAGE, edit feedback form PAGE*/
+/*styling for feedback header, Add feedback form PAGE, edit feedback form PAGE, feedback card*/
 .main {
   width: 825px;
 }
@@ -25,6 +25,22 @@ select {
   padding: 15px;
   background-color: var(--white);
   border-radius: 10px;
+}
+
+.upvote-button-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--very-light-purple);
+  border-radius: 10px;
+  width: fit-content;
+  height: 53px;
+}
+.upvote-button-section:hover,
+.upvote-button:hover path {
+  background-color: var(--violet-blue);
+  color: var(--white);
+  stroke: var(--white);
+  cursor: pointer;
 }
 
 /*add feedback PAGE*/
@@ -60,15 +76,28 @@ select {
     width: 100%;
     margin: auto;
   }
+  #feedback-header-logo,
+  #number-of-suggestions {
+    display: none;
+  }
   .add-feedback-header select#sort-category {
     width: 100%;
   }
   .feedback-card {
     width: 100%;
     margin: auto;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
   }
-  #feedback-header-logo,
-  #number-of-suggestions {
-    display: none;
+  .feedback-description {
+    color: red;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .upvote-button-section {
+    display: flex;
+    flex-direction: row;
   }
 }

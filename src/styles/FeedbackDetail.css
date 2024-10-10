@@ -15,3 +15,21 @@
   width: var(--desktop-container-width);
   border-radius: 10px;
 }
+
+.reply-card {
+  border-left: 1px solid rgb(232, 232, 232);
+}
+
+@media (max-width: 768px) {
+  .feedback-detail {
+    width: 100%;
+  }
+
+  .comment-section {
+    width: 100%;
+  }
+
+  .post-comment-section {
+    width: 100%;
+  }
+}

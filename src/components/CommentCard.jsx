@@ -60,14 +60,14 @@ export default function CommentCard({
 
   return (
     <div className="comment-card row mb-3">
-      <div className="col-1">
+      <div className="col-md-1 col-2">
         <img
           src={comment.user.image}
           alt="profile Picture"
           className="profile-picture"
         />
       </div>
-      <div className="col-11">
+      <div className="col-md-11 col-10">
         <div className="d-flex justify-content-between mb-0 pb-0">
           <h4 className="mb-0">{comment.user.name}</h4>
           <div onClick={handleDisplayReply} id="reply-button">
@@ -108,17 +108,17 @@ export default function CommentCard({
         comment.replies.map((reply) => {
           return (
             <div
-              className="comment-card row ms-5 d-flex flex-shrink-1"
+              className="comment-card reply-card row ms-5 d-flex flex-shrink-1"
               key={reply.id}
             >
-              <div className="col-1">
+              <div className="col-md-1 col-2">
                 <img
                   src={reply.user.image}
                   alt="profile Picture"
                   className="profile-picture"
                 />
               </div>
-              <div className="col-11">
+              <div className="col-md-11 col-10">
                 <div className="d-flex justify-content-between mb-0 pb-0">
                   <h4>{reply.user.name}</h4>
                   <div>Reply</div>

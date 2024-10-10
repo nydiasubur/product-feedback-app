@@ -153,19 +153,3 @@ h4 {
   width: 540px;
   padding: 15px;
 }
-
-.upvote-button-section {
-  background-color: var(--very-light-purple);
-  border-radius: 10px;
-  width: 40px;
-  height: 53px;
-}
-.upvote-button-section:hover,
-.upvote-button:hover path {
-  background-color: var(--violet-blue);
-  color: var(--white);
-  stroke: var(--white);
-  cursor: pointer;
-}
-.upvote-button:hover path {
-}
