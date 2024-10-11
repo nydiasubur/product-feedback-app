@@ -54,9 +54,7 @@ export default function Navbar() {
     );
     const isVisible = navbarMobileSubContainer.getAttribute("data-visible");
     const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
-    const hamburgerToggleButton = mobileNavToggle.getAttribute(
-      "hamburgerToggleButton"
-    );
+
     if (isVisible.trim() === "false") {
       navbarMobileSubContainer.setAttribute("data-visible", "true");
       mobileNavToggle.setAttribute("hamburgerToggleButton", "false");

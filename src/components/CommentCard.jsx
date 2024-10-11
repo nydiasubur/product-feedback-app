@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { FeedbackListContext, CurrentUserContext } from "../Main";
+import ReplyCard from "./ReplyCard";
 
 export default function CommentCard({
   comment,
@@ -107,30 +108,13 @@ export default function CommentCard({
       {comment.replies?.length > 0 &&
         comment.replies.map((reply) => {
           return (
-            <div
-              className="comment-card reply-card row ms-5 d-flex flex-shrink-1"
+            <ReplyCard
+              reply={reply}
+              comment={comment}
               key={reply.id}
-            >
-              <div className="col-md-1 col-2">
-                <img
-                  src={reply.user.image}
-                  alt="profile Picture"
-                  className="profile-picture"
-                />
-              </div>
-              <div className="col-md-11 col-10">
-                <div className="d-flex justify-content-between mb-0 pb-0">
-                  <h4>{reply.user.name}</h4>
-                  <div>Reply</div>
-                </div>
-
-                <p id="username">@{reply.user.username}</p>
-                <p>
-                  <span className="replying-to">@{reply.replyingTo} </span>
-                  {reply.content}
-                </p>
-              </div>
-            </div>
+              handlePostReply={handlePostReply}
+              handleReplyComment={handleReplyComment}
+            />
           );
         })}
     </div>

@@ -109,6 +109,7 @@ option:hover {
     background-size: cover;
     position: absolute;
     top: 0;
+    border-radius: 0px;
   }
   .navbar-mobile-sub-container {
     position: fixed;
