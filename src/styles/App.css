@@ -153,3 +153,6 @@ h4 {
   width: 540px;
   padding: 15px;
 }
+
+@media (max-width: 767px) {
+}

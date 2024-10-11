@@ -19,11 +19,44 @@ export default function RoadmapPage() {
     }
   });
 
+  //mobile version displays
+
+  //queryselector by ID to get the element
+
+  function displayPlannedSectionOnly() {
+    const plannedSection = document.getElementById("planned-container");
+
+    const progressSection = document.getElementById("progress-container");
+
+    const liveSection = document.getElementById("live-container");
+    plannedSection.style.display = "block";
+    progressSection.style.display = "none";
+    liveSection.style.display = "none";
+  }
+
+  function displayProgressSectionOnly() {
+    const plannedSection = document.getElementById("planned-container");
+    const progressSection = document.getElementById("progress-container");
+    const liveSection = document.getElementById("live-container");
+    progressSection.style.display = "block";
+    plannedSection.style.display = "none";
+    liveSection.style.display = "none";
+  }
+
+  function displayLiveSectionOnly() {
+    const plannedSection = document.getElementById("planned-container");
+    const progressSection = document.getElementById("progress-container");
+    const liveSection = document.getElementById("live-container");
+    liveSection.style.display = "block";
+    plannedSection.style.display = "none";
+    progressSection.style.display = "none";
+  }
+
   return (
-    <div className="container mt-5">
+    <div className="container roadmap-page mt-5">
       {/* Add the top nav bar */}
       <div className="row add-feedback-header ">
-        <div className="col-9 d-flex align-items-center">
+        <div className="col-4 col-md-9 d-flex align-items-center go-back-roadmap-item">
           <Link to="/">
             <div className="d-flex align-items-center">
               <div>
@@ -42,7 +75,7 @@ export default function RoadmapPage() {
           </Link>
           <div className="mx-5 fw-bolder">Roadmap</div>
         </div>
-        <div className="col-3  d-flex justify-content-end">
+        <div className="col-8 col-md-3  d-flex justify-content-end">
           <button className="violet-button ">
             <Link to="/create-new-feedback">+ Add Feedback</Link>
           </button>
@@ -50,9 +83,31 @@ export default function RoadmapPage() {
       </div>
       {/* end of top nav bar */}
 
+      {/* displayed only in mobile version */}
+      <div className="mobile-version-tabs d-flex justify-content-around mt-3 d-none">
+        <div className="planned-orange-tab" onClick={displayPlannedSectionOnly}>
+          {" "}
+          <h3> Planned ({feedbackObjectsPlanned.length})</h3>
+        </div>
+        <div
+          className="progress-purple-tab"
+          onClick={displayProgressSectionOnly}
+        >
+          <h3> In-Progress ({feedbackObjectsInProgress.length})</h3>
+        </div>
+        <div className="live-blue-tab" onClick={displayLiveSectionOnly}>
+          <h3> Live ({feedbackObjectsLive.length})</h3>
+        </div>
+      </div>
+
+      {/** end of mobile version clicks */}
+
       <div className="road-map-content mt-5">
         <div className="row">
-          <div className="col planned-section">
+          <div
+            className="col-12 col-md-4 planned-section"
+            id="planned-container"
+          >
             <h3> Planned ({feedbackObjectsPlanned.length})</h3>
             <p> Ideas prioritized for research</p>
             {feedbackObjectsPlanned?.map((feedback) => {
@@ -66,7 +121,10 @@ export default function RoadmapPage() {
               );
             })}
           </div>
-          <div className="col planned-section ">
+          <div
+            className="col-12 col-md-4  planned-section "
+            id="progress-container"
+          >
             <h3> In-Progress ({feedbackObjectsInProgress.length})</h3>
             <p> Currently being developed</p>
             {feedbackObjectsInProgress?.map((feedback) => {
@@ -81,7 +139,7 @@ export default function RoadmapPage() {
             })}
           </div>
           {/* end of planned section column */}
-          <div className="col planned-section">
+          <div className="col-12 col-md-4  planned-section" id="live-container">
             <h3> Live ({feedbackObjectsLive.length})</h3>
             <p> Currently being developed</p>
             {feedbackObjectsLive?.map((feedback) => {

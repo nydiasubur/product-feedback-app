@@ -33,3 +33,42 @@
 .blue-bulletpoint {
   color: var(--light-blue);
 }
+/*.mobile-version-tabs {
+  display: none;
+}*/
+
+@media (max-width: 767px) {
+  .road-map-content {
+    margin-top: 0px;
+  }
+  .card.roadmap-card {
+    max-width: 100%;
+  }
+  .add-feedback-header .go-back-roadmap-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .mobile-version-tabs {
+    display: block;
+    padding: 5px;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid var(--gray);
+  }
+  .mobile-version-tabs h3 {
+    color: var(--gray);
+  }
+  .mobile-version-tabs h3:hover {
+    color: var(--main-dark-blue);
+  }
+  .planned-orange-tab:hover {
+    border-bottom: 4px solid #e48965;
+  }
+  .progress-purple-tab:hover {
+    border-bottom: 4px solid var(--violet);
+  }
+  .live-blue-tab:hover {
+    border-bottom: 4px solid var(--light-blue);
+  }
+}

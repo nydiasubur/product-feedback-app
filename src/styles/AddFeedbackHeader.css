@@ -73,10 +73,8 @@ select {
     width: 100%;
   }
   .add-feedback-header {
-    width: 100%;
-    margin: auto;
+    width: fit-content;
     border-radius: 0px;
-    margin-top: 90px;
   }
   #feedback-header-logo,
   #number-of-suggestions {
@@ -101,5 +99,9 @@ select {
   .upvote-button-section {
     display: flex;
     flex-direction: row;
+  }
+
+  .container.roadmap-page {
+    margin-top: 0px !important;
   }
 }
