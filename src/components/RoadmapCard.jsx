@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import UpvoteButton from "./UpvoteButton";
 
 export default function RoadmapCard({ headerStatus, feedback, cardColor }) {
   return (
@@ -10,30 +12,16 @@ export default function RoadmapCard({ headerStatus, feedback, cardColor }) {
               <p>{headerStatus[0]}</p>
             </li>
           </ul>
-          <h3>{feedback?.title}</h3>
+          <Link to={`/feedback/${feedback.id}`}>
+            <h3>{feedback?.title}</h3>
 
-          <p class="card-text">
-            It would be great to see more detailed break down!
-          </p>
-          <div className="category-button mb-3">{feedback?.category}</div>
+            <p class="card-text">{feedback.description}</p>
+          </Link>
+          <div className="category-button mb-3 mt-3">{feedback?.category}</div>
           <div>
             <div className="d-flex justify-content-between">
-              <div className="upvote-button-roadmap  d-flex align-items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="11"
-                  height="7"
-                  viewBox="0 0 11 7"
-                  fill="none"
-                  className="me-2"
-                >
-                  <path
-                    d="M1.33447 6L5.33447 2L9.33447 6"
-                    stroke="#4661E6"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <div className="upvote-count">{feedback?.upvotes}</div>
+              <div className="upvote-button-roadmap r roadmap-upvote-button d-flex align-items-center ">
+                <UpvoteButton feedback={feedback} />
               </div>
               <div className="comments-number-section d-flex align-items-center">
                 <svg

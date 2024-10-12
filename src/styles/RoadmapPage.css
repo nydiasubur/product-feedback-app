@@ -37,6 +37,19 @@
 .blue-bulletpoint {
   color: var(--light-blue);
 }
+
+.roadmap-upvote-button .upvote-button {
+  margin-right: 5px;
+}
+
+.roadmap-upvote-button:hover,
+.roadmap-upvote-button:hover path {
+  background-color: var(--violet-blue);
+  color: var(--white);
+  stroke: var(--white);
+  cursor: pointer;
+}
+
 /*.mobile-version-tabs {
   display: none;
 }*/

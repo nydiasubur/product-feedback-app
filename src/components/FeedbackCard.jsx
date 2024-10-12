@@ -1,61 +1,21 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FeedbackListContext } from "../Main";
+import UpvoteButton from "./UpvoteButton";
 
 export default function FeedbackCard({ feedback }) {
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-  const [hasUpvoted, setHasUpvoted] = useState(false);
-  const feedbackListCopy = JSON.parse(JSON.stringify([...feedbackList]));
+
   //console.log("feedbackListCopy cards", feedbackList);
 
-  function handleUpvote(feedback) {
-    //console.log("feedback when upvote is click", feedback);
-    const feedbackCopy = JSON.parse(JSON.stringify(feedback));
-    //console.log("feedbackCopy when u destructure it?", feedbackCopy);
-    const position = feedbackList.findIndex(
-      (currentFeedback) => currentFeedback.id === feedback.id
-    ); //returns index
-    if (hasUpvoted) {
-      feedbackCopy.upvotes--;
-      feedbackListCopy[position] = feedbackCopy;
-      setFeedbackList(feedbackListCopy);
-      setHasUpvoted(false);
-    } else if (!hasUpvoted) {
-      feedbackCopy.upvotes++;
-      feedbackListCopy[position] = feedbackCopy;
-      setFeedbackList(feedbackListCopy);
-      setHasUpvoted(true);
-    }
-  }
   return (
     <>
       {" "}
       <div className="row feedback-card mt-3 mb-3 p-4 " key={feedback.id}>
-        <div
-          className="col-lg-1 col-md-2 order-md-1 order-2 mx-2 upvote-button-section  align-items-center"
-          onClick={(e) => {
-            handleUpvote(feedback);
-          }}
-        >
-          <div className="upvote-button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="11"
-              height="7"
-              viewBox="0 0 11 7"
-              fill="none"
-            >
-              <path
-                d="M1.33447 6L5.33447 2L9.33447 6"
-                stroke="#4661E6"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-          <div className="upvote-count">{feedback.upvotes}</div>
+        <div className="col-lg-1 col-md-2 col-4 order-md-1 order-2 mx-2 upvote-button-section  align-items-center">
+          <UpvoteButton feedback={feedback} />
         </div>
-
-        <div className="col-lg-9 col-md-8 order-md-2 order-1 feedback-description">
+        <div className="col-lg-9 col-md-8 col-4 order-md-2 order-1 feedback-description">
           <Link to={`/feedback/${feedback.id}`}>
             <h3 className="semi-bold-font-style">
               {feedback.title} {/*feedback title*/}
@@ -67,7 +27,7 @@ export default function FeedbackCard({ feedback }) {
           </Link>
         </div>
 
-        <div className="col-lg-2 col-md-2 d-flex align-items-center order-3 order-md-2">
+        <div className="col-lg-2 col-md-2 col-4  d-flex align-items-center order-3 order-md-2 comment-button-section">
           <span className=" pe-3 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

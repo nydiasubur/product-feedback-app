@@ -22,6 +22,7 @@ select {
 }
 
 .feedback-card {
+  display: flex;
   padding: 15px;
   background-color: var(--white);
   border-radius: 10px;
@@ -80,7 +81,6 @@ select {
     width: 100%;
   }
   .add-feedback-header {
-    width: fit-content;
     border-radius: 0px;
     margin-top: 137px;
   }
@@ -95,11 +95,10 @@ select {
     width: 100%;
     margin: auto;
     padding: 30px;
-    display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
   .feedback-description {
-    color: red;
     width: 100%;
     margin-bottom: 15px;
   }
@@ -107,9 +106,35 @@ select {
   .upvote-button-section {
     display: flex;
     flex-direction: row;
+    width: fit-content;
   }
 
   .container.roadmap-page {
     margin-top: 0px !important;
+  }
+  /* Mobile size media query */
+  /* Mobile size media query */
+  @media (max-width: 767px) {
+    .feedback-card {
+      display: flex; /* Use flexbox for the feedback card */
+    }
+
+    .feedback-description {
+      width: 100%;
+    }
+
+    .button-row {
+      display: flex; /* Flexbox for button row */
+      align-items: center; /* Center vertically */
+    }
+
+    .comment-button-section {
+      justify-content: end;
+    }
+
+    .upvote-button {
+      display: flex; /* Flex display for the button */
+      align-items: center; /* Center vertically */
+    }
   }
 }
