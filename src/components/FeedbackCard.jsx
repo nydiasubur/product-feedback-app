@@ -32,7 +32,7 @@ export default function FeedbackCard({ feedback }) {
       {" "}
       <div className="row feedback-card mt-3 mb-3 p-4 " key={feedback.id}>
         <div
-          className="col-1 order-md-1 order-2 mx-2 upvote-button-section  align-items-center"
+          className="col-lg-1 col-md-2 order-md-1 order-2 mx-2 upvote-button-section  align-items-center"
           onClick={(e) => {
             handleUpvote(feedback);
           }}
@@ -55,7 +55,7 @@ export default function FeedbackCard({ feedback }) {
           <div className="upvote-count">{feedback.upvotes}</div>
         </div>
 
-        <div className="col-9 order-md-2 order-1 feedback-description">
+        <div className="col-lg-9 col-md-8 order-md-2 order-1 feedback-description">
           <Link to={`/feedback/${feedback.id}`}>
             <h3 className="semi-bold-font-style">
               {feedback.title} {/*feedback title*/}
@@ -67,7 +67,7 @@ export default function FeedbackCard({ feedback }) {
           </Link>
         </div>
 
-        <div className="col-2 d-flex align-items-center order-3 order-md-2">
+        <div className="col-lg-2 col-md-2 d-flex align-items-center order-3 order-md-2">
           <span className=" pe-3 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -84,7 +84,7 @@ export default function RoadmapPage() {
       {/* end of top nav bar */}
 
       {/* displayed only in mobile version */}
-      <div className="mobile-version-tabs d-flex justify-content-around mt-3 d-none">
+      <div className="mobile-version-tabs d-flex justify-content-around mt-3 d-block d-md-none">
         <div className="planned-orange-tab" onClick={displayPlannedSectionOnly}>
           {" "}
           <h3> Planned ({feedbackObjectsPlanned.length})</h3>
@@ -102,7 +102,7 @@ export default function RoadmapPage() {
 
       {/** end of mobile version clicks */}
 
-      <div className="road-map-content mt-5">
+      <div className="road-map-content">
         <div className="row">
           <div
             className="col-12 col-md-4 planned-section"

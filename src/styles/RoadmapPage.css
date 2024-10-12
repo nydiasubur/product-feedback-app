@@ -5,6 +5,10 @@
   font-weight: 500;
 }
 
+.road-map-content {
+  margin-top: 50px;
+}
+
 .roadmap-card {
   border: none;
   border-top: 4px;
@@ -38,8 +42,11 @@
 }*/
 
 @media (max-width: 767px) {
-  .road-map-content {
+  .roadmap-page .add-feedback-header {
     margin-top: 0px;
+  }
+  .road-map-content {
+    margin-top: 20px;
   }
   .card.roadmap-card {
     max-width: 100%;
@@ -51,13 +58,11 @@
   }
 
   .mobile-version-tabs {
-    display: block;
-    padding: 5px;
-    padding-bottom: 10px;
     border-bottom: 0.5px solid var(--gray);
   }
   .mobile-version-tabs h3 {
     color: var(--gray);
+    font-size: 1rem;
   }
   .mobile-version-tabs h3:hover {
     color: var(--main-dark-blue);

@@ -52,6 +52,13 @@ select {
   margin-right: 20px;
 }
 
+/* ipad size media query*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .feedback-card {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 /*mobile size media query*/
 
 @media (max-width: 767px) {
@@ -75,6 +82,7 @@ select {
   .add-feedback-header {
     width: fit-content;
     border-radius: 0px;
+    margin-top: 137px;
   }
   #feedback-header-logo,
   #number-of-suggestions {

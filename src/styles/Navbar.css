@@ -1,6 +1,7 @@
 .navbar {
   flex-direction: column;
   width: 255px;
+  padding-top: 0px;
 }
 .navbar .header {
   background-image: url(/assets/suggestions/desktop/background-header.png);
@@ -57,10 +58,25 @@ option:hover {
     justify-content: center; /* Center the items horizontally */
     align-items: center;
     width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .navbar .header {
+    background-image: url(/assets/suggestions/tablet/background-header.png);
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
   }
   .navbar .header,
   .navbar .tags {
     margin-right: 12px; /* Adds horizontal space between items */
+    height: 207px;
+  }
+  .navbar .roadmap {
+    height: 207px;
+  }
+  .navbar-mobile-sub-container {
+    display: flex;
   }
 
   .app.container {
@@ -85,6 +101,7 @@ option:hover {
     width: 100%;
     margin-bottom: 0px;
     padding-bottom: 0px;
+
     position: fixed;
     left: 0;
     top: 0;

@@ -13,6 +13,9 @@
   --red-opacity: rgba(215, 55, 55, 0.7);
   --desktop-container-width: 825px;
 }
+.app {
+  margin-top: 45px;
+}
 
 body {
   background-color: var(--light-gray);
@@ -153,6 +156,18 @@ h4 {
   width: 540px;
   padding: 15px;
 }
-
+/*ipad size*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navbar-column-at-app-page {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 @media (max-width: 767px) {
+  .app {
+    margin-top: 0px;
+  }
 }

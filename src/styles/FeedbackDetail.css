@@ -29,7 +29,21 @@
   border-left: 1px solid rgb(232, 232, 232);
   border-bottom: none;
 }
+/* ipad size*/
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .feedback-detail {
+    width: 100%;
+  }
+
+  .comment-section {
+    width: 100%;
+  }
+
+  .post-comment-section {
+    width: 100%;
+  }
+}
 @media (max-width: 768px) {
   .feedback-detail {
     width: 100%;
