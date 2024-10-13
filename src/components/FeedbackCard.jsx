@@ -1,11 +1,9 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { FeedbackListContext } from "../Main";
+
 import UpvoteButton from "./UpvoteButton";
 
 export default function FeedbackCard({ feedback }) {
-  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-
   //console.log("feedbackListCopy cards", feedbackList);
 
   return (

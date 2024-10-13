@@ -7,7 +7,8 @@ import FeedbackCard from "./FeedbackCard";
 export default function FeedbackDetail() {
   // display the feedback defatils of the feedback id passed
   const { id } = useParams();
-  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  const { feedbackList, setFeedbackList, originalFeedbackListRef } =
+    useContext(FeedbackListContext);
   const copyOfFeedbackList = JSON.parse(JSON.stringify([...feedbackList]));
 
   //console.log("copy of feedback list", copyOfFeedbackList);
@@ -59,6 +60,7 @@ export default function FeedbackDetail() {
 
       copyOfFeedbackList[feedbackArrayIndex].comments = combinationOfComments;
       setFeedbackList(copyOfFeedbackList);
+      originalFeedbackListRef.current = copyOfFeedbackList;
     } else if (!currentFeedbackObject.comments) {
       const currentFeedbackObjectWithCommentAdded = {
         ...currentFeedbackObject,
@@ -68,6 +70,7 @@ export default function FeedbackDetail() {
       copyOfFeedbackList[feedbackArrayIndex] =
         currentFeedbackObjectWithCommentAdded;
       setFeedbackList(copyOfFeedbackList);
+      originalFeedbackListRef.current = copyOfFeedbackList;
     }
 
     alert("Comment Added Successfully");

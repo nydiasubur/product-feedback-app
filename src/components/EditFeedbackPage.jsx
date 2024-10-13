@@ -6,7 +6,8 @@ export default function EditFeedbackPage() {
   const { id } = useParams();
   const cleanId = id.replace(":", "");
 
-  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  const { feedbackList, setFeedbackList, originalFeedbackListRef } =
+    useContext(FeedbackListContext);
   let copyOfFeedbackList = JSON.parse(JSON.stringify([...feedbackList]));
 
   console.log("edit feedback copy of feedbacklist", copyOfFeedbackList);
@@ -30,6 +31,7 @@ export default function EditFeedbackPage() {
         (feedback) => feedback.id !== parseInt(cleanId)
       );
       setFeedbackList(copyOfFeedbackList);
+      originalFeedbackListRef.current = copyOfFeedbackList;
       alert("Feedback deleted successfully");
       window.location.href = "/";
     }, 2000);
@@ -66,19 +68,15 @@ export default function EditFeedbackPage() {
     };
   }
 
-  function handleAddFeedbackSubmit(e) {
+  function handleEditFeedbackSubmit(e) {
     e.preventDefault();
     //select the specific feedback object, replace it to new one
     //update the feedbackList
     alert("saving your changes..⏳");
     setTimeout(() => {
       copyOfFeedbackList[indexOfSelectedFeedback] = newFeedbackRef.current;
-
-      console.log(
-        "updated feedbackList after replacing with new edit",
-        copyOfFeedbackList
-      );
       setFeedbackList(copyOfFeedbackList);
+      originalFeedbackListRef.current = copyOfFeedbackList;
       alert("Your changes is updated successfully!");
       window.location.href = "/";
     }, 2000);
@@ -202,7 +200,7 @@ export default function EditFeedbackPage() {
           <button
             type="submit"
             className="btn btn-primary violet-button order-1 order-md-3"
-            onClick={handleAddFeedbackSubmit}
+            onClick={handleEditFeedbackSubmit}
           >
             Save Changes
           </button>
