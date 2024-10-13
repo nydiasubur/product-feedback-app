@@ -1,26 +1,27 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { FeedbackListContext } from "../Main";
 
 export default function UpvoteButton({ feedback }) {
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
-  const [hasUpvoted, setHasUpvoted] = useState(false);
+
   const feedbackListCopy = JSON.parse(JSON.stringify([...feedbackList]));
+
   function handleUpvote(feedback) {
     const feedbackCopy = JSON.parse(JSON.stringify(feedback));
-
     const position = feedbackList.findIndex(
       (currentFeedback) => currentFeedback.id === feedback.id
     ); //returns index
-    if (hasUpvoted) {
+    if (feedback.hasUpvoted) {
       feedbackCopy.upvotes--;
       feedbackListCopy[position] = feedbackCopy;
       setFeedbackList(feedbackListCopy);
-      setHasUpvoted(false);
-    } else if (!hasUpvoted) {
+      feedbackCopy.hasUpvoted = false;
+    } else if (!feedback.hasUpvoted) {
       feedbackCopy.upvotes++;
       feedbackListCopy[position] = feedbackCopy;
+
       setFeedbackList(feedbackListCopy);
-      setHasUpvoted(true);
+      feedbackCopy.hasUpvoted = true;
     }
   }
   return (

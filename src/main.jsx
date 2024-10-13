@@ -1,4 +1,4 @@
-import { StrictMode, createContext, useContext, useState } from "react";
+import { StrictMode, createContext, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
@@ -48,7 +48,22 @@ function Main() {
     data.productRequests
   );
   const currentUser = data.currentUser;
-  //console.log("main page curr user", currentUser);
+
+  useEffect(() => {
+    const updatedFeedbackList = feedbackList.map((feedback) => {
+      if (feedback.hasUpvoted === undefined) {
+        return { ...feedback, hasUpvoted: false }; // Create a new object with hasUpvoted property
+      }
+      return feedback; // If hasUpvoted already exists, return as is
+    });
+
+    // Only update if there's a change
+    if (JSON.stringify(updatedFeedbackList) !== JSON.stringify(feedbackList)) {
+      setFeedbackList(updatedFeedbackList);
+    }
+  }, [feedbackList, setFeedbackList]); // Use feedbackList to trigger effect when it changes
+
+  console.log("feedbackList did has upvoted been added?", feedbackList);
   return (
     <StrictMode>
       <CurrentUserContext.Provider value={{ currentUser }}>
