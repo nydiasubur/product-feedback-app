@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FeedbackListContext } from "/src/Main";
+import { FeedbackListContext } from "../main";
 import FeedbackCard from "./FeedbackCard";
 
 export default function FeedbackCards() {

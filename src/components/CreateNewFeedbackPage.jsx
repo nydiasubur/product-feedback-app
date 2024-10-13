@@ -1,11 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef } from "react";
 
-import { FeedbackListContext } from "/src/Main";
+import { FeedbackListContext } from "../main";
 import { Link } from "react-router-dom";
 
 export default function CreateNewFeedbackPage() {
-  const { feedbackList, setFeedbackList, originalFeedbackListRef } =
-    useContext(FeedbackListContext);
+  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
 
   // Create a ref for userInput
   const userInputRef = useRef({
@@ -52,7 +51,6 @@ export default function CreateNewFeedbackPage() {
     setTimeout(() => {
       handleIDupdate();
       setFeedbackList([...feedbackList, userInputRef.current]);
-      originalFeedbackListRef.current = [...feedbackList, userInputRef.current];
 
       // Reset the form
       document.getElementById("feedback-description").value = "";

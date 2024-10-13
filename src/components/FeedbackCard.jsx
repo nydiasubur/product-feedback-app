@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { FeedbackListContext } from "../main";
 import UpvoteButton from "./UpvoteButton";
 
 export default function FeedbackCard({ feedback }) {

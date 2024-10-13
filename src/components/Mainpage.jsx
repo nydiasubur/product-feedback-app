@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import FeedbackCards from "./FeedbackCards.jsx";
 import AddFeedbackHeader from "./AddFeedbackHeader.jsx";
-import { FeedbackListContext } from "/src/Main";
+import { FeedbackListContext } from "../main";
 
 export default function Mainpage() {
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);

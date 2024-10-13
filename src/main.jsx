@@ -1,6 +1,6 @@
-import { StrictMode, createContext, useEffect, useRef } from "react";
+import { StrictMode, createContext, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Router, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import data from "../data.json";
 import useLocalStorage from "use-local-storage";
@@ -43,15 +43,12 @@ const router = createBrowserRouter([
 ]);
 
 function Main() {
-  const originalFeedbackListRef = useRef([]);
   const [feedbackList, setFeedbackList] = useLocalStorage(
     "feedbackList",
     data.productRequests
   );
   const currentUser = data.currentUser;
 
-  //this is just to add hasUpvoted property to the feedback objcts in feedbackList
-  //needed for upvote button functionality to work properly
   useEffect(() => {
     const updatedFeedbackList = feedbackList.map((feedback) => {
       if (feedback.hasUpvoted === undefined) {
@@ -59,27 +56,18 @@ function Main() {
       }
       return feedback; // If hasUpvoted already exists, return as is
     });
+
     // Only update if there's a change
     if (JSON.stringify(updatedFeedbackList) !== JSON.stringify(feedbackList)) {
       setFeedbackList(updatedFeedbackList);
     }
   }, [feedbackList, setFeedbackList]); // Use feedbackList to trigger effect when it changes
 
-  //this is to store the original feedbackList in a ref to be used later. for filtering.
-  useEffect(() => {
-    if (feedbackList.length > 0) {
-      originalFeedbackListRef.current = JSON.parse(
-        JSON.stringify(feedbackList)
-      );
-    }
-  }, [originalFeedbackListRef]); // Empty dependency array ensures this runs only once
-
+  console.log("feedbackList did has upvoted been added?", feedbackList);
   return (
     <StrictMode>
       <CurrentUserContext.Provider value={{ currentUser }}>
-        <FeedbackListContext.Provider
-          value={{ feedbackList, setFeedbackList, originalFeedbackListRef }}
-        >
+        <FeedbackListContext.Provider value={{ feedbackList, setFeedbackList }}>
           <RouterProvider router={router} />
         </FeedbackListContext.Provider>
       </CurrentUserContext.Provider>

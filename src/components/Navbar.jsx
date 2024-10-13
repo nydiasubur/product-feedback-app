@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FeedbackListContext } from "/src/Main";
+import { FeedbackListContext } from "../main";
 
 export default function Navbar() {
   let planned = 0;
   let inProgress = 0;
   let live = 0;
-  const { feedbackList, setFeedbackList, originalFeedbackListRef } =
-    useContext(FeedbackListContext);
+  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
+  const feedbackLength = feedbackList.length;
+  const originalFeedbackListRef = useRef([]);
+
+  useEffect(() => {
+    if (feedbackList.length > 0) {
+      originalFeedbackListRef.current = JSON.parse(
+        JSON.stringify(feedbackList)
+      );
+    }
+  }, []); // Empty dependency array ensures this runs only once
+  console.log("originalfeedbacklist", originalFeedbackListRef);
 
   feedbackList.map((feedback) => {
     switch (feedback.status) {
@@ -32,10 +42,9 @@ export default function Navbar() {
       return;
     }
     const filteredFeedbackList = originalFeedbackListRef.current.filter(
-      (feedback) => feedback.category.toLowerCase().trim() === categorySelected
+      (feedback) => feedback.category === categorySelected
     );
-    console.log("filtered feedback list", filteredFeedbackList);
-    console.log("original feedback list", originalFeedbackListRef.current);
+
     setFeedbackList(filteredFeedbackList);
   }
 

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FeedbackListContext, CurrentUserContext } from "/src/Main";
+import { FeedbackListContext, CurrentUserContext } from "../main";
 import ReplyCard from "./ReplyCard";
 
 export default function CommentCard({
@@ -13,8 +13,7 @@ export default function CommentCard({
   //after i update the comment object to the copied feedback object
   //set the new feedback to the state
   const { currentUser } = useContext(CurrentUserContext);
-  const { feedbackList, setFeedbackList, originalFeedbackListRef } =
-    useContext(FeedbackListContext);
+  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
   const [isVisible, setIsVisible] = useState(false);
   const [replyInput, setReplyInput] = useState("");
   let copyOfCurrentCommentObject = JSON.parse(JSON.stringify(comment));
@@ -57,8 +56,6 @@ export default function CommentCard({
     };
 
     setFeedbackList(copyOfFeedbackList);
-    originalFeedbackListRef.current = copyOfFeedbackList;
-
     setIsVisible(false);
   }
 

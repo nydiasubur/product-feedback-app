@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
-import { FeedbackListContext } from "/src/Main";
+import React, { useContext } from "react";
+import { FeedbackListContext } from "../main";
 
 export default function UpvoteButton({ feedback }) {
-  const { feedbackList, setFeedbackList, originalFeedbackListRef } =
-    useContext(FeedbackListContext);
+  const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
 
   const feedbackListCopy = JSON.parse(JSON.stringify([...feedbackList]));
 
@@ -16,14 +15,12 @@ export default function UpvoteButton({ feedback }) {
       feedbackCopy.upvotes--;
       feedbackListCopy[position] = feedbackCopy;
       setFeedbackList(feedbackListCopy);
-      originalFeedbackListRef.current = feedbackListCopy;
       feedbackCopy.hasUpvoted = false;
     } else if (!feedback.hasUpvoted) {
       feedbackCopy.upvotes++;
       feedbackListCopy[position] = feedbackCopy;
 
       setFeedbackList(feedbackListCopy);
-      originalFeedbackListRef.current = feedbackListCopy;
       feedbackCopy.hasUpvoted = true;
     }
   }

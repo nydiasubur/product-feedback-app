@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { FeedbackListContext } from "/src/Main";
+import { FeedbackListContext } from "../main";
 import { Link } from "react-router-dom";
 
 export default function AddFeedbackHeader() {
