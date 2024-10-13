@@ -1,6 +1,8 @@
 # Frontend Mentor - Product feedback app solution
 
-This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6).
+
+A little more about Frontend Mentor: Frotend Mentor offers a collection of realistic projects designed to enhance front-end development skills. Each challenge comes with detailed Figma designs, allowing us to build high-quality applications based on professional-grade mockups.
 
 ## Table of contents
 
@@ -10,29 +12,25 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+  - [3 Main things I learned](#3-Main-things-I-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
 ### The challenge
 
-Users should be able to:
+This project is a dynamic feedback application built using React.js and Bootstrap, designed to enhance user interaction and streamline the feedback process. It provides a seamless user experience with complex CRUD (Create, Read, Update, Delete) functionalities, allowing users to:
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Create, read, update, and delete product feedback requests
-- Receive form validations when trying to create/edit feedback requests
-- Sort suggestions by most/least upvotes and most/least comments
-- Filter suggestions by category
-- Add comments and replies to a product feedback request
-- Upvote product feedback requests
-- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+- View an optimal layout tailored to their device's screen size.
+- Interact with hover states for all clickable elements on the page.
+- Create, read, update, and delete product feedback requests.
+- Receive form validations when submitting or editing feedback requests.
+- Sort suggestions based on the number of upvotes and comments.
+- Filter suggestions by category for easier navigation.
+- Add comments and replies to existing product feedback requests.
+- Upvote feedback requests to help prioritize suggestions.
 
 ### Screenshot
 
@@ -49,132 +47,132 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://product-feedback-app-reactjs.netlify.app/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+This project utilizes a range of modern technologies and libraries to deliver a robust user experience:
+
+- Semantic HTML5 for accessible and meaningful markup.
+- CSS Custom Properties for easy theming and styling.
+- Flexbox and CSS Grid for responsive and flexible layouts.
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [Bootstrap](https://getbootstrap.com/) - For responsive design and pre-styled components.
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) - For routing and navigation within the application, enabling multi-page functionality.
+- Local Storage - For persisting data across sessions.
+- Context API (useContext) for state management across components.
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### 3 Main things I learned
 
-### What I learned
+This really challenging project was my first multi-page React application, where I tackled complex CRUD operations and nested data management. I learned to effectively use React Router for navigation, understood the importance of creating deep copies to manage state updates, and utilized the useContext hook to manage global state, which streamlined my data flow and prevented prop drilling issues.
 
-1. sorting functionality + nature of react to trigger a re-render:
-   toSorted --> returns new array vs sort() --> changes original array
+### 1. Using React Router for Multi-page Navigation
 
-In React, state updates must trigger a re-render, but if React detects that the state is not actually changing (such as when it references the same array), it will not trigger a re-render.
+One of the significant challenges I faced during this project was learning to utilize React Router for multi-page navigation. Initially, I underestimated its complexity since React is optimized for single-page applications (SPAs). To effectively implement routing, I focused on three main concepts I learned:
 
-- learn to use toSort function
-- initially page did not render when i used sort() it updated the original array and when i update the state, react didnt detect a change and so it did not render
+**1. Creating the Routers**: I set up the router at the root level in `main.jsx` using the `createBrowserRouter` method, defining paths for each component within my application. This approach ensures that the router encapsulates all components, allowing them to access routing functionalities seamlessly. For example, I structured my routes as follows:
 
 ```jsx
-switch (e.target.value) {
-  case "most-upvotes":
-    setFeedbackList(feedbackList.toSorted((a, b) => b.upvotes - a.upvotes));
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/create-new-feedback",
+    element: <CreateNewFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/feedback/:id",
+    element: <FeedbackDetail />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/edit-feedback/:id",
+    element: <EditFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/roadmap",
+    element: <RoadmapPage />,
+    errorElement: <NotFoundPage />,
+  },
+]);
+```
 
-    break;
-  case "least-upvotes":
-    setFeedbackList(feedbackList.toSorted((a, b) => a.upvotes - b.upvotes));
+**2.Providing Router Context::** I utilized the <RouterProvider> to enable navigation between pages, effectively providing context for all components that require routing functionalities. This allowed for seamless transitions and a consistent user experience:
 
-    break;
-  case "most-comments":
-    setFeedbackList(
-      feedbackList.toSorted((a, b) => {
-        const aCommentsLength = a.comments ? a.comments.length : 0;
-        const bCommentsLength = b.comments ? b.comments.length : 0;
-        return bCommentsLength - aCommentsLength;
-      })
-    );
-    break;
-  case "least-comments":
-    setFeedbackList(
-      feedbackList.toSorted((a, b) => {
-        const aCommentsLength = a.comments ? a.comments.length : 0;
-        const bCommentsLength = b.comments ? b.comments.length : 0;
-        return aCommentsLength - bCommentsLength;
-      })
-    );
-    break;
+```javascript
+<RouterProvider router={router} />
+```
+
+**3. Accessing Dynamic Parameters:** I implemented dynamic routing to handle parameters in my links, using the `useParams` hook to access specific data based on the route. In the `FeedbackDetail.jsx` component, I utilized the useParams hook to extract the feedback ID from the URL, allowing me to display the corresponding feedback details:
+
+```javascript
+const { id } = useParams();
+const feedback = feedbackList.find((feedback) => feedback.id === parseInt(id));
+```
+
+Additionally, I included navigation links for returning to the previous page and editing feedback, enhancing user experience:
+
+```javascript
+<Link to="/" className="d-flex semi-bold-grey-font-style">Go Back</Link>
+<Link to={`/edit-feedback/${id}`}>Edit Feedback</Link>
+```
+
+### 2. Understanding React's Re-rendering Behavior: Creating Deep Copy Before Using Setter Method
+
+I've learned to appreciate React's re-rendering behavior and the principle of immutability in state management. In my EditFeedbackPage component, I create a deep copy of the feedbackList before making any modifications. This ensures I follow the immutability principle and allows React to recognize changes, triggering re-renders when necessary.
+
+For instance, I initialize the copy of the feedback list like this:
+
+```javascript
+let copyOfFeedbackList = JSON.parse(JSON.stringify([...feedbackList]));
+```
+
+By doing so, I avoid directly modifying the original state. When deleting or updating feedback items, I use the setter function `setFeedbackList` to ensure the component re-renders with the updated state:
+
+```javascript
+copyOfFeedbackList = copyOfFeedbackList.filter(
+  (feedback) => feedback.id !== parseInt(cleanId)
+);
+setFeedbackList(copyOfFeedbackList);
+```
+
+### 3. Using useContext for Global State Management
+
+In this project, I learned to use useContext hook for the first time to create global variables for managing feedback and the current user. This approach helps prevent issues with nested states in a larger application, ensuring that the state remains consistent across multiple pages and preventing prop drilling.
+
+```jsx
+import { createContext } from "react";
+import { createRoot } from "react-dom/client";
+import useLocalStorage from "use-local-storage";
+
+export const FeedbackListContext = createContext();
+export const CurrentUserContext = createContext();
+
+function Main() {
+  const [feedbackList, setFeedbackList] = useLocalStorage(
+    "feedbackList",
+    data.productRequests
+  );
+  const currentUser = data.currentUser;
+
+  return (
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <FeedbackListContext.Provider value={{ feedbackList, setFeedbackList }}>
+        {/* Router and app components go here */}
+      </FeedbackListContext.Provider>
+    </CurrentUserContext.Provider>
+  );
 }
-```
 
-2. optional chaining
-
-```jsx
-case "most-comments":
-        setFeedbackList(
-          feedbackList.toSorted(
-            (a, b) => (b.comments?.length || 0) - (a.comments?.length || 0)
-          )
-        );
-        break;
-      case "least-comments":
-        setFeedbackList(
-          feedbackList.toSorted((a, b) => {
-            const aCommentsLength = a.comments ? a.comments.length : 0;
-            const bCommentsLength = b.comments ? b.comments.length : 0;
-            return aCommentsLength - bCommentsLength;
-          })
-        );
-        break;
-```
-
-2.using react-router for multiple JSX pages and managing/passing state and stateSetter
-
-```jsx
-//atMainpage for the button
-<button className="violet-button ">
-  <Link to="/create-new-feedback" state={{ feedbackList, setFeedbackList }}>
-    + Add Feedback
-  </Link>
-</button>;
-
-//at createNewFeedbackPage
-import { useLocation } from "react-router-dom";
-
-const { feedback, setFeedbackList } = useLocation().state;
-```
-
-3. using useRef vs using normal variable 
-```jsx 
-  const userInputRef = useRef({
-    id: 100,
-    title: "",
-    category: "",
-    upvotes: 0,
-    status: "",
-    description: "",
-  });
-
-  function handleTitleInput(e) {
-    // Update the ref's current value
-    userInputRef.current = { ...userInputRef.current, title: e.target.value };
-  }
- ```
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-
-```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+// Render the app
+createRoot(document.getElementById("root")).render(<Main />);
 ```
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
@@ -183,27 +181,14 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+- I would love to turn this into a full-stack app. Right now, data is stored in a local JSON file, but I’m eager to connect it to an external database for storing, updating, and retrieving data.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- I want to keep exploring how to build multi-page applications with React Router DOM and look into the most efficient ways and best practices for state management, especially when comparing useContext with other approaches.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Portfolio - [Nydia Subur](https://nydia-subur-portfolio.netlify.app/)
+- Frontend Mentor - [@nydiasubur](https://www.frontendmentor.io/profile/nydiasubur)
+- Twitter/X - [@nydiaSubur](https://x.com/nydiasubur)
 
 **Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
