@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FeedbackListContext, CurrentUserContext } from "../Main";
+import { FeedbackListContext, CurrentUserContext } from "/src/Main";
 import { useParams, Link } from "react-router-dom";
 import CommentCard from "./CommentCard";
 import FeedbackCard from "./FeedbackCard";

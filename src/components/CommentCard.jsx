@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { FeedbackListContext, CurrentUserContext } from "../Main";
+import { FeedbackListContext, CurrentUserContext } from "/src/Main";
 import ReplyCard from "./ReplyCard";
 
 export default function CommentCard({

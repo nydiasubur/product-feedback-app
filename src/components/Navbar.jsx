@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FeedbackListContext } from "../Main";
+import { FeedbackListContext } from "/src/Main";
 
 export default function Navbar() {
   let planned = 0;

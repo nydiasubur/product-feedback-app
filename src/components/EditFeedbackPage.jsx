@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { FeedbackListContext } from "../Main";
+import { FeedbackListContext } from "/src/Main";
 
 export default function EditFeedbackPage() {
   const { id } = useParams();

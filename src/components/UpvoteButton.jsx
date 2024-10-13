@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { FeedbackListContext } from "../Main";
+import { FeedbackListContext } from "/src/Main";
 
 export default function UpvoteButton({ feedback }) {
   const { feedbackList, setFeedbackList } = useContext(FeedbackListContext);
