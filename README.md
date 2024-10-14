@@ -34,11 +34,11 @@ This project is a responsive and dynamic feedback application built using React.
 
 ### Screenshot
 
-![](assets/screenshots/Desktop-Feedback-Detail.png)
-![](assets/screenshots/Desktop-Roadmap.png)
-![](assets/screenshots/Desktop-Suggestions.png)
-![](assets/screenshots/Mobile-Roadmap.png)
-![](assets/screenshots/Mobile-Suggestions-Sidebar.png)
+![](./assets/screenshots/Desktop-Feedback-Detail.png)
+![](./assets/screenshots/Desktop-Roadmap.png)
+![](./assets/screenshots/Desktop-Suggestions.png)
+![](./assets/screenshots/Mobile-Roadmap.png)
+![](./assets/screenshots/Mobile-Suggestions-Sidebar.png)
 
 ### Links
 
