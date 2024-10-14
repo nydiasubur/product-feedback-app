@@ -42,8 +42,8 @@ This project is a responsive and dynamic feedback application built using React.
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://product-feedback-app-reactjs.netlify.app/)
+- [Frontendmentor solution](https://www.frontendmentor.io/solutions/responsive-product-feedback-app-with-react-and-bootstrap-2hNWu9VOio)
+- [Live Site URL: ](https://product-feedback-app-reactjs.netlify.app/)
 
 ## My process
 
@@ -170,10 +170,6 @@ function Main() {
 // Render the app
 createRoot(document.getElementById("root")).render(<Main />);
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
