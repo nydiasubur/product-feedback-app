@@ -34,16 +34,16 @@ This project is a responsive and dynamic feedback application built using React.
 
 ### Screenshot
 
-![](./assets/screenshots/Desktop-Feedback-Detail.png)
-![](./assets/screenshots/Desktop-Roadmap.png)
-![](./assets/screenshots/Desktop-Suggestions.png)
-![](./assets/screenshots/Mobile-Roadmap.png)
-![](./assets/screenshots/Mobile-Suggestions-Sidebar.png)
+![](./public/assets/screenshots/Desktop-Feedback-Detail.png)
+![](./public/assets/screenshots/Desktop-Roadmap.png)
+![](./public/assets/screenshots/Desktop-Suggestions.png)
+![](./public/assets/screenshots/Mobile-Roadmap.png)
+![](./public/assets/screenshots/Mobile-Suggestions-Sidebar.png)
 
 ### Links
 
 - [Frontendmentor solution](https://www.frontendmentor.io/solutions/responsive-product-feedback-app-with-react-and-bootstrap-2hNWu9VOio)
-- [Live Site URL: ](https://product-feedback-app-reactjs.netlify.app/)
+- [Live Site URL](https://product-feedback-app-reactjs.netlify.app/)
 
 ## My process
 
