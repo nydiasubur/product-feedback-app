@@ -1,113 +1,190 @@
-# Frontend Mentor - Product feedback app
+# Frontend Mentor - Product feedback app solution
 
-![Design preview for the Product feedback app coding challenge](./preview.jpg)
+This is a solution to the [Product feedback app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6).
 
-## Welcome! 👋
+About Frontend Mentor: Frotend Mentor offers a collection of realistic projects designed to enhance front-end development skills. Each challenge comes with detailed Figma designs, allowing us to build high-quality applications based on professional-grade mockups.
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+## Table of contents
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [3 Main things I learned](#3-Main-things-I-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-**To do this challenge, you need a strong understanding of HTML, CSS, and JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this product feedback application and get it looking as close to the design as possible.
+This project is a responsive and dynamic feedback application built using React.js and Bootstrap, designed to enhance user interaction and streamline the feedback process. It provides a seamless user experience with complex CRUD (Create, Read, Update, Delete) functionalities, allowing users to:
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+- View an optimal layout tailored to their device's screen size.
+- Interact with hover states for all clickable elements on the page.
+- Create, read, update, and delete product feedback requests.
+- Receive form validations when submitting or editing feedback requests.
+- Sort suggestions based on the number of upvotes and comments.
+- Filter suggestions by category for easier navigation.
+- Add comments and replies to existing product feedback requests.
+- Upvote feedback requests to help prioritize suggestions.
 
-We provide the data in a local `data.json` file, so use that to populate the content on the first load. If you want to take it up a notch, feel free to build this as a full-stack application!
+### Screenshot
 
-Your users should be able to:
+![](/assets/screenshots/Desktop-Feedback-Detail.png)
+![](/assets/screenshots/Desktop-Roadmap.png)
+![](/assets/screenshots/Desktop-Suggestions.png)
+![](/assets/screenshots/Mobile-Roadmap.png)
+![](/assets/screenshots/Mobile-Suggestions-Sidebar.png)
 
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Create, read, update, and delete product feedback requests
-- Receive form validations when trying to create/edit feedback requests
-- Sort suggestions by most/least upvotes and most/least comments
-- Filter suggestions by category
-- Add comments and replies to a product feedback request
-- Upvote product feedback requests
-- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
+### Links
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://product-feedback-app-reactjs.netlify.app/)
 
-### Expected Behaviour
+## My process
 
-- Suggestions page
-  - Only product feedback requests with a status of `suggestion` should be shown on the Suggestions page.
-- Roadmap
-  - Feedback requests with a status of `planned`, `in-progress`, or `live` should show up on the roadmap, and should be placed in the correct column based on their status.
-  - Columns should be ordered by upvote totals.
-- Creating a product request
-  - When creating a new piece of feedback, an ID needs to be assigned which increments the current highest product request ID by 1.
-  - The default status for a new piece of feedback is `suggestion`. This places it on the Suggestions page.
-- Editing feedback
-  - If a piece of feedback has its status updated to `planned`/`in-progress`/`live` it moves through to the roadmap and should show up in the correct column based on its new status.
-- Add comments/replies
-  - Use the data from the `currentUser` object in the `data.json` file to populate the user data for any new comments or replies.
-  - Any comment/reply can have a maximum of 250 characters.
+### Built with
 
-## Where to find everything
+This project utilizes a range of modern technologies and libraries to deliver a robust user experience:
 
-Your task is to build out the project to the design file provided. We provide both Sketch and Figma versions of the design, so you can choose which tool you prefer to use. You can download the design file on the platform. **Please be sure not to share them with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+- Semantic HTML5 for accessible and meaningful markup.
+- CSS Custom Properties for easy theming and styling.
+- Flexbox and CSS Grid for responsive and flexible layouts.
+- [React](https://reactjs.org/) - JS library
+- [Bootstrap](https://getbootstrap.com/) - For responsive design and pre-styled components.
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) - For routing and navigation within the application, enabling multi-page functionality.
+- Local Storage - For persisting data across sessions.
+- Context API (useContext) for state management across components.
 
-All the required assets for this project are in the `/assets` folder. The assets are already exported for the correct screen size and optimized. Some images are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+### 3 Main things I learned
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project.
+This really challenging project was my first multi-page React application, where I tackled complex CRUD operations and nested data management. I learned to effectively use React Router for navigation, understood the importance of creating deep copies to manage state updates, and utilized the useContext hook to manage global state, which streamlined my data flow and prevented prop drilling issues.
 
-## Building your project
+### 1. Using React Router for Multi-page Navigation
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+One of the significant challenges I faced during this project was learning to utilize React Router for multi-page navigation. Initially, I underestimated its complexity since React is optimized for single-page applications (SPAs). To effectively implement routing, I focused on three main concepts I learned:
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the design files to GitHub. With these premium challenges, please be sure not to share the design files in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+**1. Creating the Routers**: I set up the router at the root level in `main.jsx` using the `createBrowserRouter` method, defining paths for each component within my application. This approach ensures that the router encapsulates all components, allowing them to access routing functionalities seamlessly. For example, I structured my routes as follows:
 
-## Deploying your project
+```jsx
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/create-new-feedback",
+    element: <CreateNewFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/feedback/:id",
+    element: <FeedbackDetail />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/edit-feedback/:id",
+    element: <EditFeedbackPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/roadmap",
+    element: <RoadmapPage />,
+    errorElement: <NotFoundPage />,
+  },
+]);
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+**2.Providing Router Context::** I utilized the <RouterProvider> to enable navigation between pages, effectively providing context for all components that require routing functionalities. This allowed for seamless transitions and a consistent user experience:
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+```javascript
+<RouterProvider router={router} />
+```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+**3. Accessing Dynamic Parameters:** I implemented dynamic routing to handle parameters in my links, using the `useParams` hook to access specific data based on the route. In the `FeedbackDetail.jsx` component, I utilized the useParams hook to extract the feedback ID from the URL, allowing me to display the corresponding feedback details:
 
-## Create a custom `README.md`
+```javascript
+const { id } = useParams();
+const feedback = feedbackList.find((feedback) => feedback.id === parseInt(id));
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+Additionally, I included navigation links for returning to the previous page and editing feedback, enhancing user experience:
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+```javascript
+<Link to="/" className="d-flex semi-bold-grey-font-style">Go Back</Link>
+<Link to={`/edit-feedback/${id}`}>Edit Feedback</Link>
+```
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### 2. Understanding React's Re-rendering Behavior: Creating Deep Copy Before Using Setter Method
 
-## Submitting your solution
+I've learned to appreciate React's re-rendering behavior and the principle of immutability in state management. In my EditFeedbackPage component, I create a deep copy of the feedbackList before making any modifications. This ensures I follow the immutability principle and allows React to recognize changes, triggering re-renders when necessary.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+For instance, I initialize the copy of the feedback list like this:
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+```javascript
+let copyOfFeedbackList = JSON.parse(JSON.stringify([...feedbackList]));
+```
 
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the design files to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
+By doing so, I avoid directly modifying the original state. When deleting or updating feedback items, I use the setter function `setFeedbackList` to ensure the component re-renders with the updated state:
 
-## Sharing your solution
+```javascript
+copyOfFeedbackList = copyOfFeedbackList.filter(
+  (feedback) => feedback.id !== parseInt(cleanId)
+);
+setFeedbackList(copyOfFeedbackList);
+```
 
-There are multiple places you can share your solution:
+### 3. Using useContext for Global State Management
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+In this project, I learned to use useContext hook for the first time to create global variables for managing feedback and the current user. This approach helps prevent issues with nested states in a larger application, ensuring that the state remains consistent across multiple pages and preventing prop drilling.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+```jsx
+import { createContext } from "react";
+import { createRoot } from "react-dom/client";
+import useLocalStorage from "use-local-storage";
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+export const FeedbackListContext = createContext();
+export const CurrentUserContext = createContext();
 
-## Got feedback for us?
+function Main() {
+  const [feedbackList, setFeedbackList] = useLocalStorage(
+    "feedbackList",
+    data.productRequests
+  );
+  const currentUser = data.currentUser;
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+  return (
+    <CurrentUserContext.Provider value={{ currentUser }}>
+      <FeedbackListContext.Provider value={{ feedbackList, setFeedbackList }}>
+        {/* Router and app components go here */}
+      </FeedbackListContext.Provider>
+    </CurrentUserContext.Provider>
+  );
+}
 
-**Have fun building!** 🚀
+// Render the app
+createRoot(document.getElementById("root")).render(<Main />);
+```
+
+If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+
+**Note: Delete this note and the content within this section and replace with your own learnings.**
+
+### Continued development
+
+- I would love to turn this into a full-stack app. Right now, data is stored in a local JSON file, but I’m eager to connect it to an external database for storing, updating, and retrieving data.
+
+- I want to keep exploring how to build multi-page applications with React Router DOM and look into the most efficient ways and best practices for state management, especially when comparing useContext with other approaches.
+
+## Author
+
+- Portfolio - [Nydia Subur](https://nydia-subur-portfolio.netlify.app/)
+- Frontend Mentor - [@nydiasubur](https://www.frontendmentor.io/profile/nydiasubur)
+- Twitter/X - [@nydiaSubur](https://x.com/nydiasubur)
+
+**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
