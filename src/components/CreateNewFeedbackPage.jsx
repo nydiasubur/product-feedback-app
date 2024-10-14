@@ -85,7 +85,7 @@ export default function CreateNewFeedbackPage() {
           <div>Go Back</div>
         </Link>
         <img
-          src="/public/assets/shared/icon-new-feedback.svg"
+          src="/assets/shared/icon-new-feedback.svg"
           alt="add feedback icon"
           className="form-icon-position"
         />

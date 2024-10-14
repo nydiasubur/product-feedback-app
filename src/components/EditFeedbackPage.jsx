@@ -109,7 +109,7 @@ export default function EditFeedbackPage() {
           <div>Go Back</div>
         </Link>
         <img
-          src="/public/assets/shared/icon-edit-feedback.svg"
+          src="/assets/shared/icon-edit-feedback.svg"
           alt="add feedback icon"
           className="form-icon-position"
         />
