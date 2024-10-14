@@ -1,6 +1,6 @@
 {
   "currentUser": {
-    "image": "/assets/user-images/image-zena.jpg",
+    "image": "/assets/user-images/image-zena.jpg?v=1",
     "name": "Zena Kelley",
     "username": "velvetround"
   },
@@ -17,7 +17,7 @@
           "id": 1,
           "content": "Awesome idea! Trying to find framework-specific projects within the hubs can be tedious",
           "user": {
-            "image": "/assets/user-images/image-suzanne.jpg",
+            "image": "/assets/user-images/image-suzanne.jpg?v=1",
             "name": "Suzanne Chang",
             "username": "upbeat1811"
           }
@@ -26,7 +26,7 @@
           "id": 2,
           "content": "Please use fun, color-coded labels to easily identify them at a glance",
           "user": {
-            "image": "/assets/user-images/image-thomas.jpg",
+            "image": "/assets/user-images/image-thomas.jpg?v=1",
             "name": "Thomas Hood",
             "username": "brawnybrave"
           }

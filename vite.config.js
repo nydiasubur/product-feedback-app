@@ -1,10 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: "dist", // Ensure this matches the Netlify setting
+    outDir: "dist", // Build output directory
   },
+  publicDir: "public", // Directory for static assets
+  base: "./", // Ensure relative paths are correctly resolved
 });
