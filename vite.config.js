@@ -7,5 +7,5 @@ export default defineConfig({
     outDir: "dist", // Build output directory
   },
   publicDir: "public", // Directory for static assets
-  base: "./", // Ensure relative paths are correctly resolved
+  base: "/", // This is crucial for correct asset paths
 });

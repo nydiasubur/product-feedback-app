@@ -34,11 +34,11 @@ This project is a responsive and dynamic feedback application built using React.
 
 ### Screenshot
 
-![](/assets/screenshots/Desktop-Feedback-Detail.png)
-![](/assets/screenshots/Desktop-Roadmap.png)
-![](/assets/screenshots/Desktop-Suggestions.png)
-![](/assets/screenshots/Mobile-Roadmap.png)
-![](/assets/screenshots/Mobile-Suggestions-Sidebar.png)
+![](assets/screenshots/Desktop-Feedback-Detail.png)
+![](assets/screenshots/Desktop-Roadmap.png)
+![](assets/screenshots/Desktop-Suggestions.png)
+![](assets/screenshots/Mobile-Roadmap.png)
+![](assets/screenshots/Mobile-Suggestions-Sidebar.png)
 
 ### Links
 
@@ -186,5 +186,3 @@ If you want more help with writing markdown, we'd recommend checking out [The Ma
 - Portfolio - [Nydia Subur](https://nydia-subur-portfolio.netlify.app/)
 - Frontend Mentor - [@nydiasubur](https://www.frontendmentor.io/profile/nydiasubur)
 - Twitter/X - [@nydiaSubur](https://x.com/nydiasubur)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
